@@ -1,117 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Stark AI System</title>
+<title>Stark AI System | Plataforma Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 
 <style>
 body{
 margin:0;
-font-family:Arial;
-background:#0b1220;
+font-family:'Outfit',sans-serif;
+background:linear-gradient(135deg,#0b1220,#0f1a30);
 color:white;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-min-height:100vh;
+}
+
+header{
 text-align:center;
+padding:80px 20px 40px;
+}
+
+h1{
+font-size:2.2rem;
+margin-bottom:10px;
+}
+
+p{
+color:#cbd5e1;
+max-width:650px;
+margin:auto;
+line-height:1.6;
+}
+
+.container{
+max-width:900px;
+margin:auto;
 padding:20px;
 }
 
-.box{
-max-width:600px;
+.card{
 background:#111a2e;
-padding:25px;
-border-radius:12px;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:14px;
+padding:20px;
+margin:15px 0;
 }
 
-h1{font-size:24px;}
-
-button{
+.btn{
+display:inline-block;
+padding:14px 22px;
 background:#f0b429;
-border:none;
-padding:12px 20px;
-margin-top:10px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
+color:#000;
+font-weight:700;
+border-radius:10px;
+text-decoration:none;
+margin-top:15px;
 }
 
-.chat{
-margin-top:20px;
-text-align:left;
+.whatsapp{
+background:#25D366;
+color:#fff;
+}
+
+.section-title{
+text-align:center;
+margin-top:50px;
+font-size:1.5rem;
+}
+
+.steps{
+display:grid;
+gap:10px;
+}
+
+.step{
 background:#0f1a30;
 padding:15px;
 border-radius:10px;
-height:250px;
+}
+
+.chat-box{
+background:#0c1528;
+border-radius:12px;
+padding:15px;
+height:260px;
 overflow:auto;
+margin-top:20px;
+border:1px solid rgba(255,255,255,0.08);
 }
 
-.msg{
-margin:8px 0;
-}
-
-.user{color:#93c5fd;}
+.msg{margin:8px 0;}
 .bot{color:#fbbf24;}
+.user{color:#93c5fd;}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+font-size:12px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<header>
 <h1>Stark AI System</h1>
-<p>Asistente digital automático para información del sistema</p>
+<p>
+Plataforma digital de información guiada con asesores humanos y sistema inteligente de atención.
+</p>
 
-<button onclick="start()">Iniciar conversación</button>
+<a class="btn whatsapp" href="https://wa.me/4915565291942?text=Hola%20quiero%20información%20del%20sistema" target="_blank">
+Hablar con un asesor
+</a>
+</header>
 
-<div class="chat" id="chat"></div>
+<div class="container">
 
-<button onclick="goWhatsApp()">Hablar con asesor real</button>
+<div class="card">
+<h2 class="section-title">Cómo funciona</h2>
+
+<div class="steps">
+<div class="step">1. Solicitas información</div>
+<div class="step">2. Un asesor te contacta</div>
+<div class="step">3. Recibes explicación personalizada</div>
+<div class="step">4. Decides participar</div>
 </div>
+</div>
+
+<div class="card">
+<h2 class="section-title">Sistema AI Simulado</h2>
+
+<div class="chat-box" id="chat">
+<div class="msg bot">Hola 👋 soy el asistente digital de Stark.</div>
+<div class="msg bot">¿Buscas información o estás explorando opciones digitales?</div>
+</div>
+
+<a class="btn" onclick="next()">Responder</a>
+<a class="btn whatsapp" href="https://wa.me/4915565291942?text=Quiero%20hablar%20con%20un%20asesor" target="_blank">Ir a WhatsApp</a>
+</div>
+
+<div class="card">
+<h2 class="section-title">Qué obtienes</h2>
+<p>✔ Acceso a información guiada<br>
+✔ Asesoría personalizada<br>
+✔ Sistema digital explicado paso a paso<br>
+✔ Soporte por WhatsApp</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Stark AI System · Plataforma informativa digital
+</footer>
 
 <script>
 
 let step = 0;
 
-function addMsg(text, type){
+function add(text, type){
 const div = document.createElement("div");
 div.className = "msg " + type;
 div.innerText = text;
 document.getElementById("chat").appendChild(div);
+document.getElementById("chat").scrollTop = 9999;
 }
 
-function start(){
-document.getElementById("chat").innerHTML = "";
-step = 0;
-bot();
-}
-
-function bot(){
+function next(){
 
 if(step === 0){
-addMsg("Hola 👋 soy el asistente de Stark AI.", "bot");
-addMsg("¿Buscas ingresos digitales o solo información?", "bot");
+add("Perfecto 👍", "user");
+add("Te explico: este sistema conecta usuarios con asesores reales.", "bot");
 step++;
 return;
 }
 
 if(step === 1){
-addMsg("Perfecto 👍 este sistema es solo informativo y guiado por asesores humanos.", "bot");
-addMsg("¿Quieres que te conecte con un asesor real?", "bot");
+add("¿Quieres que un asesor te contacte por WhatsApp?", "bot");
 step++;
 return;
 }
+
+if(step === 2){
+add("Puedes hacer clic en el botón de WhatsApp abajo 👇", "bot");
+step++;
+return;
 }
-
-document.addEventListener("click", function(e){
-if(e.target.tagName === "BODY") return;
-bot();
-});
-
-function goWhatsApp(){
-window.open("https://wa.me/4915565291942?text=Hola%20quiero%20información%20del%20sistema","_blank");
 }
 
 </script>
