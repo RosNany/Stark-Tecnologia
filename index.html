@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stark Tecnología</title>
+<title>Stark Tecnología - Ros Nany</title>
 
 <style>
 body {
   margin:0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffffff, #e5e7eb);
-  color: #111;
+  background: linear-gradient(135deg, #0b0f1a, #111827);
+  color:white;
 }
 
 header {
@@ -31,7 +31,7 @@ h1 {
 }
 
 .card {
-  background: rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.05);
   padding:20px;
   margin:15px;
   border-radius:15px;
@@ -72,46 +72,115 @@ button {
   text-decoration:none;
   color:white;
 }
+
+.small {
+  font-size:12px;
+  opacity:0.7;
+  margin-top:20px;
+}
 </style>
+
+<script>
+function cambiarIdioma(idioma) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === idioma ? 'block' : 'none';
+  });
+}
+</script>
+
 </head>
 
-<body>
+<body onload="cambiarIdioma('es')">
 
 <div class="lang">
-<button>ES</button>
-<button>EN</button>
-<button>DE</button>
+  <button onclick="cambiarIdioma('es')">ES</button>
+  <button onclick="cambiarIdioma('en')">EN</button>
+  <button onclick="cambiarIdioma('de')">DE</button>
 </div>
 
 <header>
-<h1>STARK TECNOLOGÍA</h1>
-<p>Conectando el mundo industrial con el universo digital</p>
-<a class="btn" href="#">ÚNETE AHORA</a>
+  <h1>STARK TECNOLOGÍA</h1>
+
+  <p data-lang="es">Conectando el mundo industrial con el universo digital</p>
+  <p data-lang="en">Connecting the industrial world with the digital universe</p>
+  <p data-lang="de">Verbindung der industriellen Welt mit dem digitalen Universum</p>
+
+  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">ÚNETE AHORA</a>
 </header>
 
 <div class="section">
-<h2>¿Qué es Stark?</h2>
-<p>Plataforma que conecta empresas reales con tecnología digital, creando oportunidades en la economía moderna.</p>
 
-<a class="btn" href="#">Registrarme</a>
+  <h2 data-lang="es">¿Qué es Stark?</h2>
+  <h2 data-lang="en">What is Stark?</h2>
+  <h2 data-lang="de">Was ist Stark?</h2>
+
+  <p data-lang="es">
+  Plataforma que conecta empresas reales con tecnología blockchain,
+  creando oportunidades en la economía digital.
+  </p>
+
+  <p data-lang="en">
+  Platform connecting real companies with blockchain,
+  creating digital income opportunities.
+  </p>
+
+  <p data-lang="de">
+  Plattform zur Verbindung realer Unternehmen mit Blockchain
+  für digitale Einkommensmöglichkeiten.
+  </p>
+
+  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Registrarme</a>
+
 </div>
 
 <div class="section">
-<h2>Beneficios</h2>
 
-<div class="card">Ingresos digitales</div>
-<div class="card">Transparencia</div>
-<div class="card">Soporte continuo</div>
+  <h2 data-lang="es">Beneficios</h2>
+  <h2 data-lang="en">Benefits</h2>
+  <h2 data-lang="de">Vorteile</h2>
 
-<a class="btn" href="#">Empieza hoy</a>
+  <div class="card" data-lang="es">Ingresos digitales</div>
+  <div class="card" data-lang="en">Digital income</div>
+  <div class="card" data-lang="de">Digitale Einnahmen</div>
+
+  <div class="card" data-lang="es">Transparencia</div>
+  <div class="card" data-lang="en">Transparency</div>
+  <div class="card" data-lang="de">Transparenz</div>
+
+  <div class="card" data-lang="es">Soporte continuo</div>
+  <div class="card" data-lang="en">Continuous support</div>
+  <div class="card" data-lang="de">Support</div>
+
 </div>
 
 <div class="section">
-<h2>Crear cuenta</h2>
-<p>Los resultados pueden variar y dependen de la participación individual.</p>
+
+  <h2 data-lang="es">Empieza hoy</h2>
+  <h2 data-lang="en">Start today</h2>
+  <h2 data-lang="de">Starte heute</h2>
+
+  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Crear cuenta</a>
+
+  <p class="small" data-lang="es">
+  Los resultados pueden variar y dependen de la participación individual.
+  </p>
+
+  <p class="small" data-lang="en">
+  Results may vary depending on individual participation.
+  </p>
+
+  <p class="small" data-lang="de">
+  Ergebnisse können je nach individueller Teilnahme variieren.
+  </p>
+
 </div>
 
-<a class="whatsapp" href="https://wa.me/0000000000">💬</a>
+<div class="section">
+  <h2>Ros Nany</h2>
+  <a class="btn" href="https://wa.me/15565291942">WhatsApp</a>
+</div>
+
+<a class="whatsapp" href="https://wa.me/15565291942">💬</a>
 
 </body>
 </html>
