@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stark AI System</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+text-align:center;
+padding:20px;
+}
+
+.box{
+max-width:600px;
+background:#111a2e;
+padding:25px;
+border-radius:12px;
+}
+
+h1{font-size:24px;}
+
+button{
+background:#f0b429;
+border:none;
+padding:12px 20px;
+margin-top:10px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.chat{
+margin-top:20px;
+text-align:left;
+background:#0f1a30;
+padding:15px;
+border-radius:10px;
+height:250px;
+overflow:auto;
+}
+
+.msg{
+margin:8px 0;
+}
+
+.user{color:#93c5fd;}
+.bot{color:#fbbf24;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>Stark AI System</h1>
+<p>Asistente digital automático para información del sistema</p>
+
+<button onclick="start()">Iniciar conversación</button>
+
+<div class="chat" id="chat"></div>
+
+<button onclick="goWhatsApp()">Hablar con asesor real</button>
+</div>
+
+<script>
+
+let step = 0;
+
+function addMsg(text, type){
+const div = document.createElement("div");
+div.className = "msg " + type;
+div.innerText = text;
+document.getElementById("chat").appendChild(div);
+}
+
+function start(){
+document.getElementById("chat").innerHTML = "";
+step = 0;
+bot();
+}
+
+function bot(){
+
+if(step === 0){
+addMsg("Hola 👋 soy el asistente de Stark AI.", "bot");
+addMsg("¿Buscas ingresos digitales o solo información?", "bot");
+step++;
+return;
+}
+
+if(step === 1){
+addMsg("Perfecto 👍 este sistema es solo informativo y guiado por asesores humanos.", "bot");
+addMsg("¿Quieres que te conecte con un asesor real?", "bot");
+step++;
+return;
+}
+}
+
+document.addEventListener("click", function(e){
+if(e.target.tagName === "BODY") return;
+bot();
+});
+
+function goWhatsApp(){
+window.open("https://wa.me/4915565291942?text=Hola%20quiero%20información%20del%20sistema","_blank");
+}
+
+</script>
+
+</body>
+</html>
