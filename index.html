@@ -3,306 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STARK | Digital Growth Agency</title>
+<title>Stark Tecnología</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#fff;
-color:#0f172a;
-transition:0.3s;
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  color: #111;
 }
 
-/* HEADER */
-header{
-text-align:center;
-padding:90px 20px;
-background:#f8fafc;
+header {
+  text-align:center;
+  padding:60px 20px;
 }
 
-h1{
-font-size:3em;
-color:#2563eb;
+h1 {
+  font-size:2.5em;
+  color:#00d4ff;
 }
 
-.subtitle{
-max-width:750px;
-margin:auto;
-font-size:1.2em;
-color:#475569;
-transition:0.3s;
+.section {
+  padding:40px 20px;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
 }
 
-/* SECTIONS */
-.section{
-padding:60px 20px;
-text-align:center;
-max-width:1000px;
-margin:auto;
-transition:0.3s;
+.card {
+  background: rgba(0,0,0,0.05);
+  padding:20px;
+  margin:15px;
+  border-radius:15px;
 }
 
-h2{
-color:#1d4ed8;
+.btn {
+  background:#00d4ff;
+  padding:12px 25px;
+  color:black;
+  text-decoration:none;
+  border-radius:30px;
+  display:inline-block;
+  margin-top:15px;
+  font-weight:bold;
 }
 
-/* CARDS */
-.grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
+.lang {
+  position:fixed;
+  top:10px;
+  right:10px;
 }
 
-.card{
-background:#f1f5f9;
-padding:20px;
-border-radius:12px;
-width:260px;
-transition:0.3s;
+button {
+  margin:3px;
+  padding:5px 10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-/* BUTTON */
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:14px 30px;
-background:#2563eb;
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#1d4ed8;
-transform:scale(1.03);
-}
-
-/* INPUT */
-input{
-width:90%;
-max-width:400px;
-padding:12px;
-margin:8px;
-border:1px solid #ddd;
-border-radius:8px;
-}
-
-/* LANG */
-.lang{
-position:fixed;
-top:10px;
-right:10px;
-z-index:10;
-}
-
-.lang button{
-margin:3px;
-padding:8px 12px;
-border:none;
-border-radius:20px;
-cursor:pointer;
-background:#e5e7eb;
-transition:0.3s;
-}
-
-.lang button:hover{
-background:#2563eb;
-color:white;
-transform:scale(1.05);
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-font-size:20px;
-}
-
-/* UX ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(5px);
-transition:0.25s ease;
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  color:white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🌍 LANG -->
 <div class="lang">
-<button onclick="setLang('es')">🇪🇸 ES</button>
-<button onclick="setLang('en')">🇬🇧 EN</button>
-<button onclick="setLang('de')">🇩🇪 DE</button>
+<button>ES</button>
+<button>EN</button>
+<button>DE</button>
 </div>
 
-<!-- HERO -->
 <header>
-<h1>STARK DIGITAL AGENCY</h1>
-
-<p class="subtitle" id="subtitle">
-Ayudamos a negocios a generar clientes potenciales mediante sistemas digitales.
-</p>
-
-<a class="btn" id="cta"
-href="https://wa.me/4915565291942?text=Hola%20quiero%20una%20consultoría">
-Solicitar consultoría
-</a>
+<h1>STARK TECNOLOGÍA</h1>
+<p>Conectando el mundo industrial con el universo digital</p>
+<a class="btn" href="#">ÚNETE AHORA</a>
 </header>
 
-<!-- SERVICES -->
 <div class="section">
-<h2 id="servicesTitle">Servicios</h2>
+<h2>¿Qué es Stark?</h2>
+<p>Plataforma que conecta empresas reales con tecnología digital, creando oportunidades en la economía moderna.</p>
 
-<div class="grid">
-<div class="card" id="s1">📈 Generación de leads</div>
-<div class="card" id="s2">🌐 Landing pages</div>
-<div class="card" id="s3">🤖 Automatización</div>
-<div class="card" id="s4">📊 Optimización</div>
-</div>
+<a class="btn" href="#">Registrarme</a>
 </div>
 
-<!-- TRUST -->
 <div class="section">
-<h2 id="trustTitle">Confianza y seguridad</h2>
+<h2>Beneficios</h2>
 
-<div class="grid">
-<div class="card" id="t1">🔒 Procesos seguros</div>
-<div class="card" id="t2">📊 Método profesional</div>
-<div class="card" id="t3">🤝 Comunicación directa</div>
+<div class="card">Ingresos digitales</div>
+<div class="card">Transparencia</div>
+<div class="card">Soporte continuo</div>
+
+<a class="btn" href="#">Empieza hoy</a>
 </div>
 
-<div style="margin-top:20px;">
-<span style="background:#e0f2fe;padding:10px 15px;border-radius:20px;font-size:12px;">
-✔ Agencia digital con procesos profesionales
-</span>
-</div>
-</div>
-
-<!-- FORM -->
 <div class="section">
-<h2 id="formTitle">Solicita una propuesta</h2>
-
-<form onsubmit="sendLead(event)">
-<input type="text" id="name" placeholder="Nombre" required>
-<br>
-<input type="tel" id="phone" placeholder="WhatsApp" required>
-<br>
-<button class="btn" type="submit">Enviar solicitud</button>
-</form>
+<h2>Crear cuenta</h2>
+<p>Los resultados pueden variar y dependen de la participación individual.</p>
 </div>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/4915565291942">💬</a>
-
-<script>
-
-const texts = {
-es:{
-subtitle:"Ayudamos a negocios a generar clientes potenciales mediante sistemas digitales.",
-services:"Servicios",
-trust:"Confianza y seguridad",
-form:"Solicita una propuesta",
-cta:"Solicitar consultoría",
-s1:"📈 Generación de leads",
-s2:"🌐 Landing pages",
-s3:"🤖 Automatización",
-s4:"📊 Optimización",
-t1:"🔒 Procesos seguros",
-t2:"📊 Método profesional",
-t3:"🤝 Comunicación directa"
-},
-
-en:{
-subtitle:"We help businesses generate leads through digital systems.",
-services:"Services",
-trust:"Trust & Security",
-form:"Request proposal",
-cta:"Get consultation",
-s1:"📈 Lead generation",
-s2:"🌐 Landing pages",
-s3:"🤖 Automation",
-s4:"📊 Optimization",
-t1:"🔒 Secure processes",
-t2:"📊 Professional method",
-t3:"🤝 Direct communication"
-},
-
-de:{
-subtitle:"Wir helfen Unternehmen, Kunden durch digitale Systeme zu gewinnen.",
-services:"Dienstleistungen",
-trust:"Vertrauen & Sicherheit",
-form:"Angebot anfordern",
-cta:"Beratung anfordern",
-s1:"📈 Lead-Generierung",
-s2:"🌐 Landing Pages",
-s3:"🤖 Automatisierung",
-s4:"📊 Optimierung",
-t1:"🔒 Sichere Prozesse",
-t2:"📊 Professionelle Methode",
-t3:"🤝 Direkte Kommunikation"
-}
-};
-
-let currentLang = localStorage.getItem("lang") || "es";
-
-function animate(el,text){
-el.classList.add("fade");
-setTimeout(()=>{
-el.innerText=text;
-el.classList.remove("fade");
-},150);
-}
-
-function setLang(lang){
-
-currentLang = lang;
-localStorage.setItem("lang", lang);
-
-let t = texts[lang];
-
-animate(document.getElementById("subtitle"),t.subtitle);
-animate(document.getElementById("servicesTitle"),t.services);
-animate(document.getElementById("trustTitle"),t.trust);
-animate(document.getElementById("formTitle"),t.form);
-animate(document.getElementById("cta"),t.cta);
-
-animate(document.getElementById("s1"),t.s1);
-animate(document.getElementById("s2"),t.s2);
-animate(document.getElementById("s3"),t.s3);
-animate(document.getElementById("s4"),t.s4);
-
-animate(document.getElementById("t1"),t.t1);
-animate(document.getElementById("t2"),t.t2);
-animate(document.getElementById("t3"),t.t3);
-}
-
-window.onload = ()=>setLang(currentLang);
-
-function sendLead(e){
-e.preventDefault();
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-
-let msg=`Hola, soy ${name}. Mi WhatsApp es ${phone}. Quiero una consultoría con STARK.`;
-
-let url="https://wa.me/4915565291942?text="+encodeURIComponent(msg);
-
-window.open(url,"_blank");
-}
-
-</script>
+<a class="whatsapp" href="https://wa.me/0000000000">💬</a>
 
 </body>
 </html>
