@@ -1,192 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stark Tecnología</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0a2540;
-    color: white;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #081c34;
-}
-
-header img {
-    height: 50px;
-}
-
-.hero {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    color: #FFD700;
-    font-size: 28px;
-}
-
-.hero p {
-    max-width: 600px;
-    margin: auto;
-    opacity: 0.8;
-}
-
-.button {
-    background: #FFD700;
-    color: black;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.section {
-    padding: 30px 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
-}
-
-.pack {
-    border: 1px solid #FFD700;
-}
-
-.social {
-    text-align: center;
-    padding: 20px;
-}
-
-.social a {
-    margin: 10px;
-    color: #FFD700;
-    text-decoration: none;
-}
-
-.lang {
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-.lang button {
-    margin: 5px;
-    padding: 8px;
-}
-
-/* WhatsApp */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STARK TECNOLOGÍA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .section {
+      padding: 60px 20px;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 400px;
+      border-radius: 12px;
+    }
+    footer {
+      padding: 20px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
-
 <body>
-
 <header>
-    <img src="https://i.imgur.com/8Km9tLL.png">
+  <h1>STARK TECNOLOGÍA</h1>
+  <p>Sistema digital inteligente con asesoría automatizada</p>
+  <a class="btn" href="#info">Acceder</a>
 </header>
-
-<div class="hero">
-    <h1 id="title">Conecta con la economía digital</h1>
-    <p id="desc">Plataforma basada en tecnología blockchain y negocios reales.</p>
-    <a class="button" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Acceder</a>
-</div>
-
-<div class="section">
-
-<div class="card pack">
-    <h2 id="plan">Inicio desde</h2>
-    <p><strong>100 USDT</strong></p>
-</div>
-
-<div class="card">
-    <p id="benefit1">Participación en empresas reales</p>
-    <p id="benefit2">Sistema digital automatizado</p>
-    <p id="benefit3">Acceso global</p>
-</div>
-
-<div class="card">
-    <p id="risk">Participación conlleva riesgos. Resultados no garantizados.</p>
-</div>
-
-</div>
-
-<div class="social">
-    <p>Síguenos</p>
-    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=ihnmpho">Instagram</a>
-    <a href="https://www.facebook.com/share/1LHzRxKd2Z/">Facebook</a>
-    <a href="https://pro.tiktok.com/t/ZG9NdhREwf7FR-S5nNO/">TikTok</a>
-</div>
-
-<div class="lang">
-    <button onclick="setLang('es')">ES</button>
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('de')">DE</button>
-</div>
-
-<a class="whatsapp" href="https://wa.me/4915565291942" target="_blank">💬</a>
-
-<script>
-function setLang(lang) {
-
-if (lang === 'es') {
-document.getElementById('title').innerText = "Conecta con la economía digital";
-document.getElementById('desc').innerText = "Plataforma basada en tecnología blockchain y negocios reales.";
-document.getElementById('plan').innerText = "Inicio desde";
-document.getElementById('benefit1').innerText = "Participación en empresas reales";
-document.getElementById('benefit2').innerText = "Sistema digital automatizado";
-document.getElementById('benefit3').innerText = "Acceso global";
-document.getElementById('risk').innerText = "Participación conlleva riesgos. Resultados no garantizados.";
-}
-
-if (lang === 'en') {
-document.getElementById('title').innerText = "Connect with the digital economy";
-document.getElementById('desc').innerText = "Platform based on blockchain technology and real businesses.";
-document.getElementById('plan').innerText = "Start from";
-document.getElementById('benefit1').innerText = "Participation in real companies";
-document.getElementById('benefit2').innerText = "Automated digital system";
-document.getElementById('benefit3').innerText = "Global access";
-document.getElementById('risk').innerText = "Participation involves risks. Results are not guaranteed.";
-}
-
-if (lang === 'de') {
-document.getElementById('title').innerText = "Verbinde dich mit der digitalen Wirtschaft";
-document.getElementById('desc').innerText = "Plattform basierend auf Blockchain-Technologie und realen Unternehmen.";
-document.getElementById('plan').innerText = "Start ab";
-document.getElementById('benefit1').innerText = "Teilnahme an realen Unternehmen";
-document.getElementById('benefit2').innerText = "Automatisiertes digitales System";
-document.getElementById('benefit3').innerText = "Globaler Zugang";
-document.getElementById('risk').innerText = "Teilnahme beinhaltet Risiken. Ergebnisse sind nicht garantiert.";
-}
-
-}
-</script>
-
+<section class="section" id="info">
+  <h2>¿Qué es este sistema?</h2>
+  <p>Plataforma tecnológica diseñada para acceso guiado paso a paso.</p>
+  <div class="card">
+    <h3>✔ Asistencia IA</h3>
+    <p>Soporte automatizado para usuarios.</p>
+  </div>
+  <div class="card">
+    <h3>✔ Acceso rápido</h3>
+    <p>Interfaz simple desde cualquier dispositivo.</p>
+  </div>
+  <div class="card">
+    <h3>✔ Sistema seguro</h3>
+    <p>Protección básica de navegación.</p>
+  </div>
+</section>
+<footer>
+  © 2026 STARK TECNOLOGÍA - Todos los derechos reservados
+</footer>
 </body>
 </html>
-  
