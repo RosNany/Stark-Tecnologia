@@ -12,7 +12,7 @@
       --accent: #60a5fa;
       --secondary: #10b981;
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.7);
+      --card-bg: rgba(30, 41, 59, 0.8);
       --text-main: #f1f5f9;
       --text-dim: #94a3b8;
     }
@@ -30,7 +30,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
       padding: 10px 25px;
@@ -38,14 +38,33 @@
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Contenedor del idioma con el icono del mundo */
-    .lang-container {
+    /* Estilo para el Mundo de Idioma sin recuadros */
+    .lang-wrapper {
       display: flex;
       align-items: center;
-      gap: 5px;
+      cursor: pointer;
+    }
+
+    #google_translate_element {
+      display: inline-block;
+    }
+
+    /* Ocultar el branding de Google Translate para que se vea más limpio */
+    .goog-te-gadget {
+      color: transparent !important;
+      font-size: 0 !important;
+    }
+    .goog-te-gadget .goog-te-combo {
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 14px;
+      margin: 0;
+      cursor: pointer;
+      outline: none;
     }
 
     header {
@@ -56,9 +75,9 @@
       align-items: center;
       text-align: center;
       padding: 20px;
-      background: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2000') no-repeat center/cover;
-      background-blend-mode: overlay;
-      background-color: rgba(15, 23, 42, 0.8);
+      /* IMAGEN LLAMATIVA DE FONDO: CIUDAD TECNOLÓGICA */
+      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover;
     }
 
     h1 {
@@ -75,7 +94,7 @@
     header p {
       font-size: 1.1rem;
       margin-top: 15px;
-      opacity: 0.8;
+      opacity: 0.9;
       max-width: 600px;
     }
 
@@ -88,7 +107,7 @@
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: 0.3s;
       box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     }
 
@@ -109,7 +128,6 @@
       border-left: 4px solid var(--primary);
       padding-left: 15px;
       margin-bottom: 40px;
-      font-size: 1.8rem;
     }
 
     .grid {
@@ -121,25 +139,32 @@
     .card {
       background: var(--card-bg);
       padding: 35px;
-      border-radius: 15px;
+      border-radius: 20px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
     }
 
+    .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
     .card p { 
-      margin: 10px 0; 
       font-size: 0.85rem; 
-      color: var(--text-dim); 
+      color: var(--text-main); 
+      position: relative; z-index: 2;
     }
     
     .card b { color: var(--accent); font-size: 0.9rem; }
-    .card h3 { margin-top: 0; font-size: 1.2rem; }
+    .card h3 { margin-top: 0; font-size: 1.2rem; position: relative; z-index: 2; color: #fff;}
 
-    /* Estilos Calculadora */
+    /* Simulador */
     .calc-container {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
       padding: 50px;
-      border-radius: 20px;
+      border-radius: 25px;
       text-align: center;
       border: 1px solid var(--primary);
     }
@@ -148,8 +173,8 @@
       padding: 15px;
       width: 100%;
       max-width: 300px;
-      border-radius: 10px;
-      border: none;
+      border-radius: 12px;
+      border: 1px solid var(--primary);
       margin: 20px 0;
       font-size: 1.2rem;
       text-align: center;
@@ -157,21 +182,8 @@
       color: white;
     }
 
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .calc-res-box {
-      background: rgba(15, 23, 42, 0.5);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
     .calc-val {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: bold;
       color: var(--secondary);
     }
@@ -187,7 +199,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       z-index: 2000;
     }
 
@@ -205,12 +217,12 @@
 
 <nav>
   <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary);">STARK</div>
-  <div style="display: flex; align-items: center; gap: 15px;">
-    <div class="lang-container">
-      <span style="font-size: 1.2rem;">🌐</span>
+  <div style="display: flex; align-items: center; gap: 20px;">
+    <div class="lang-wrapper">
+      <span style="font-size: 1.3rem; margin-right: 5px;">🌐</span>
       <div id="google_translate_element"></div>
     </div>
-    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.8rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 5px 12px; border-radius: 4px; font-weight: bold;">ABRIR CUENTA</a>
+    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 6px 14px; border-radius: 50px; font-weight: bold; transition: 0.3s;">ABRIR CUENTA</a>
   </div>
 </nav>
 
@@ -226,7 +238,7 @@
 <section id="info">
 
   <h2>01. Visión y Seguridad</h2>
-  <div class="card">
+  <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500'); background-size:cover;">
     <p><b>Modelo:</b> Activos respaldados por producción industrial física.</p>
     <p><b>Tecnología:</b> Transparencia absoluta mediante registros inmutables en Blockchain.</p>
     <p><b>Legalidad:</b> Registrada bajo las leyes de Panamá para operaciones globales.</p>
@@ -234,15 +246,15 @@
 
   <h2>02. Sectores de Impacto</h2>
   <div class="grid">
-    <div class="card">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=500'); background-size:cover;">
       <h3>🏗️ X3 XBLOCOS</h3>
       <p>Líder en prefabricados de hormigón y materiales de construcción.</p>
     </div>
-    <div class="card">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500'); background-size:cover;">
       <h3>⚙️ STK Engenharia</h3>
       <p>Ingeniería de alta precisión y mantenimiento de estructuras metálicas.</p>
     </div>
-    <div class="card">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1538108197067-284323d88682?q=80&w=500'); background-size:cover;">
       <h3>🏥 Salud y Oficinas</h3>
       <p>Mantenimiento clínico y fabricación de mobiliario especializado.</p>
     </div>
@@ -250,11 +262,11 @@
 
   <h2>03. Productos Digitales</h2>
   <div class="grid" style="margin-bottom: 50px;">
-    <div class="card">
+    <div class="card" style="border-bottom: 4px solid var(--primary);">
       <h3>Tokens Industriales</h3>
       <p>Participación directa en beneficios de fábricas reales.</p>
     </div>
-    <div class="card">
+    <div class="card" style="border-bottom: 4px solid var(--secondary);">
       <h3>Win Win (4W)</h3>
       <p>Retorno diario del <b>0.5671%</b> hasta alcanzar el 207%.</p>
     </div>
@@ -265,19 +277,16 @@
     <p style="font-size: 1rem; margin: 0;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
     <input type="number" id="montoInput" class="calc-input" placeholder="Cantidad USDT" oninput="actualizar()">
     
-    <div class="calc-grid">
-      <div class="calc-res-box">
+    <div class="grid" style="margin-top: 20px;">
+      <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
         <p style="margin: 0; font-size: 0.75rem;">DIARIO (0.5671%)</p>
         <div id="diario" class="calc-val">0.00 USDT</div>
       </div>
-      <div class="calc-grid">
-        <div class="calc-res-box">
-          <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
-          <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
-        </div>
+      <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
+        <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
+        <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
       </div>
     </div>
-    <p style="margin-top: 25px; font-size: 0.75rem; color: var(--text-dim);">*Proyección basada en el plan Win Win (4W).</p>
   </div>
 
 </section>
