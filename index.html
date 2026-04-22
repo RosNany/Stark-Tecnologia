@@ -14,7 +14,7 @@
       --bg-dark: #0f172a;
       --card-bg: rgba(30, 41, 59, 0.7);
       --text-main: #f1f5f9;
-      --text-dim: #94a3b8; /* Color para letra pequeña */
+      --text-dim: #94a3b8;
     }
 
     body {
@@ -26,7 +26,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Barra Superior para Idiomas y Registro */
     nav {
       position: fixed;
       top: 0;
@@ -92,7 +91,7 @@
     }
 
     section {
-      padding: 100px 20px; /* Más espacio entre secciones */
+      padding: 100px 20px;
       max-width: 1100px;
       margin: auto;
     }
@@ -102,57 +101,74 @@
       color: var(--accent);
       border-left: 4px solid var(--primary);
       padding-left: 15px;
-      margin-bottom: 40px; /* Más espacio bajo el título */
+      margin-bottom: 40px;
       font-size: 1.8rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px; /* Más espacio entre tarjetas */
+      gap: 30px;
     }
 
     .card {
       background: var(--card-bg);
-      padding: 35px; /* Más espacio interno */
+      padding: 35px;
       border-radius: 15px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
     }
 
     .card p { 
       margin: 10px 0; 
-      font-size: 0.9rem; /* Letra más chica para información */
+      font-size: 0.85rem; 
       color: var(--text-dim); 
     }
     
-    .card b { color: var(--accent); font-size: 0.95rem; }
+    .card b { color: var(--accent); font-size: 0.9rem; }
     .card h3 { margin-top: 0; font-size: 1.2rem; }
 
-    .highlight {
+    /* Estilos Calculadora */
+    .calc-container {
       background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      padding: 40px;
+      padding: 50px;
       border-radius: 20px;
       text-align: center;
+      border: 1px solid var(--primary);
+    }
+
+    .calc-input {
+      padding: 15px;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: none;
+      margin: 20px 0;
+      font-size: 1.2rem;
+      text-align: center;
+      background: #0f172a;
+      color: white;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
       margin-top: 20px;
     }
 
-    .stars-list {
-      list-style: none;
-      padding: 0;
+    .calc-res-box {
+      background: rgba(15, 23, 42, 0.5);
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    .stars-list li {
-      padding: 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem; /* Letra más chica en lista */
+    .calc-val {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--secondary);
     }
 
-    /* WhatsApp Flotante */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
@@ -223,7 +239,7 @@
   </div>
 
   <h2>03. Productos Digitales</h2>
-  <div class="grid">
+  <div class="grid" style="margin-bottom: 50px;">
     <div class="card">
       <h3>Tokens Industriales</h3>
       <p>Participación directa en beneficios de fábricas reales.</p>
@@ -234,14 +250,22 @@
     </div>
   </div>
 
-  <h2>04. Plan de Carrera</h2>
-  <div class="highlight">
-    <ul class="stars-list">
-      <li><span>⭐ Three Stars</span> <b>MacBook M4</b></li>
-      <li><span>⭐⭐ Four Stars</span> <b>BMW GS 800</b></li>
-      <li><span>⭐⭐⭐ Five Stars</span> <b>Mercedes Benz / BMW X1</b></li>
-      <li><span>⭐⭐⭐⭐ Six Stars</span> <b>BMW X6 Luxury</b></li>
-    </ul>
+  <h2>04. Simulador de Inversión</h2>
+  <div class="calc-container">
+    <p style="font-size: 1rem; margin: 0;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
+    <input type="number" id="montoInput" class="calc-input" placeholder="Cantidad USDT" oninput="actualizar()">
+    
+    <div class="calc-grid">
+      <div class="calc-res-box">
+        <p style="margin: 0; font-size: 0.75rem;">DIARIO (0.5671%)</p>
+        <div id="diario" class="calc-val">0.00 USDT</div>
+      </div>
+      <div class="calc-res-box">
+        <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
+        <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
+      </div>
+    </div>
+    <p style="margin-top: 25px; font-size: 0.75rem; color: var(--text-dim);">*Proyección basada en el plan Win Win (4W).</p>
   </div>
 
 </section>
@@ -258,6 +282,15 @@
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+function actualizar() {
+  const monto = document.getElementById('montoInput').value || 0;
+  const tasaDiaria = 0.005671;
+  const diario = monto * tasaDiaria;
+  const mensual = diario * 30;
+  document.getElementById('diario').innerText = diario.toLocaleString('en-US', {minimumFractionDigits: 2}) + " USDT";
+  document.getElementById('mensual').innerText = mensual.toLocaleString('en-US', {minimumFractionDigits: 2}) + " USDT";
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
