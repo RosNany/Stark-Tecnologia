@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STARK TECNOLOGÍA | Registro Oficial</title>
+  <title>STARK TECNOLOGÍA | Inversión Industrial Blockchain</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   
   <style>
@@ -12,7 +12,7 @@
       --secondary: #10b981;
       --accent: #60a5fa;
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.8);
+      --card-bg: rgba(30, 41, 59, 0.85);
       --text-main: #f1f5f9;
     }
 
@@ -25,15 +25,15 @@
       scroll-behavior: smooth;
     }
 
-    /* Barra de Navegación e Idiomas */
+    /* Navegación */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
-      padding: 10px 20px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,11 +41,9 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Estilo del traductor */
-    #google_translate_element {
-      margin-right: 15px;
-    }
+    #google_translate_element { margin-right: 15px; }
 
+    /* Header */
     header {
       height: 100vh;
       display: flex;
@@ -53,25 +51,144 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 20px;
       background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                  url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000') center/cover;
+                  url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2000') center/cover;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       margin: 0;
+      letter-spacing: 2px;
       background: linear-gradient(to right, #fff, var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
     }
 
-    .btn-register {
+    .btn-main {
       background: var(--secondary);
       color: white;
-      padding: 15px 40px;
+      padding: 18px 45px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.2rem
-      
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+      transition: 0.3s;
+      margin-top: 30px;
+      text-transform: uppercase;
+    }
+
+    .btn-main:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+    }
+
+    /* Secciones */
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    /* WhatsApp Flotante */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 2000;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); }
+
+    footer { 
+      text-align: center; 
+      padding: 60px 20px; 
+      background: #020617; 
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--accent); font-size: 1.2rem;">STARK</div>
+  <div style="display: flex; align-items: center;">
+    <div id="google_translate_element"></div>
+    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="background: var(--primary); color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; padding: 8px 15px; border-radius: 5px;">ABRIR CUENTA</a>
+  </div>
+</nav>
+
+<header>
+  <h1>STARK TECNOLOGÍA</h1>
+  <p style="font-size: 1.2rem; max-width: 700px; margin-top: 15px;">Conectando el mundo industrial con el universo digital a través de la tokenización real.</p>
+  <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-main">Regístrate Ahora</a>
+</header>
+
+<section id="beneficios">
+  <div class="grid">
+    <div class="card">
+      <h3 style="color: var(--accent);">🏗️ Producción Real</h3>
+      <p>Respaldo en empresas físicas como X3 XBLOCOS y STK Engenharia.</p>
+    </div>
+    <div class="card">
+      <h3 style="color: var(--accent);">🔗 Blockchain</h3>
+      <p>Transparencia total y seguridad en cada transacción y cierre mensual.</p>
+    </div>
+    <div class="card">
+      <h3 style="color: var(--accent);">📈 Rentabilidad</h3>
+      <p>Modelos de negocio diseñados para maximizar tu capital de forma inteligente.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" style="background: rgba(255,255,255,0.02); border-radius: 30px;">
+  <div style="text-align: center; padding: 40px;">
+    <h2>Asesoría Personalizada</h2>
+    <p>¿Tienes dudas sobre cómo empezar? Escríbeme directamente por WhatsApp.</p>
+    <a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20información%20sobre%20Stark" target="_blank" class="btn-main" style="background: #25d366; display: inline-flex; align-items: center; gap: 10px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WA"> Contactar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20información%20sobre%20Stark" class="whatsapp-btn" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35">
+</a>
+
+<footer>
+  <p><b>STARK TECNOLOGÍA</b> - Ecosistema de Tokenización Industrial</p>
+  <p style="font-size: 0.8rem; opacity: 0.6; max-width: 600px; margin: 20px auto;">
+    Operaciones basadas en blockchain. Registrada en Panamá. La inversión en activos digitales conlleva riesgos; asegúrese de comprender el modelo de negocio antes de participar.
+  </p>
+</footer>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
