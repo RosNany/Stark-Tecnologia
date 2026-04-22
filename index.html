@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STARK TECNOLOGÍA | Inversión Industrial Blockchain</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>STARK TECNOLOGÍA | polet87</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --primary: #3b82f6;
       --secondary: #10b981;
-      --accent: #60a5fa;
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.85);
+      --card-bg: rgba(30, 41, 59, 0.7);
       --text-main: #f1f5f9;
+      --text-dim: #94a3b8; /* Color para letra más chica y suave */
     }
 
     body {
@@ -21,29 +21,27 @@
       font-family: 'Inter', sans-serif;
       background: #0f172a;
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
-    /* Navegación */
+    /* Navegación con Espacio */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
       z-index: 1000;
-      padding: 12px 20px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    #google_translate_element { margin-right: 15px; }
-
-    /* Header */
+    /* Header con Aire */
     header {
       height: 100vh;
       display: flex;
@@ -51,56 +49,84 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 40px;
       background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                  url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2000') center/cover;
+                  url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000') center/cover;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.2rem, 7vw, 4rem);
-      margin: 0;
-      letter-spacing: 2px;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      margin-bottom: 15px;
+      letter-spacing: 3px;
       background: linear-gradient(to right, #fff, var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
     }
 
+    header p {
+      font-size: 1rem; /* Letra más pequeña */
+      color: var(--text-dim);
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    /* Botón Registro */
     .btn-main {
       background: var(--secondary);
       color: white;
-      padding: 18px 45px;
+      padding: 14px 35px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+      font-weight: 600;
+      font-size: 0.9rem;
       transition: 0.3s;
-      margin-top: 30px;
-      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .btn-main:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
     }
 
-    /* Secciones */
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    /* Secciones con más espacio */
+    section {
+      padding: 100px 20px; /* Más espacio entre secciones */
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+    }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px; /* Más espacio entre tarjetas */
     }
 
     .card {
       background: var(--card-bg);
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
+      padding: 35px; /* Más espacio interno */
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 0.85rem; /* Letra de descripción más chica */
+      color: var(--text-dim);
+      margin: 0;
     }
 
     /* WhatsApp Flotante */
@@ -109,78 +135,79 @@
       bottom: 25px;
       right: 25px;
       background: #25d366;
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       z-index: 2000;
-      transition: 0.3s;
     }
-    .whatsapp-btn:hover { transform: scale(1.1); }
 
-    footer { 
-      text-align: center; 
-      padding: 60px 20px; 
-      background: #020617; 
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 0.75rem; /* Letra muy pequeña para el pie */
+      color: var(--text-dim);
       border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Estilo del traductor */
+    #google_translate_element {
+      transform: scale(0.85); /* Traductor un poco más pequeño */
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--accent); font-size: 1.2rem;">STARK</div>
-  <div style="display: flex; align-items: center;">
+  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary); font-size: 1rem;">STARK</div>
+  <div style="display: flex; align-items: center; gap: 15px;">
     <div id="google_translate_element"></div>
-    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="background: var(--primary); color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; padding: 8px 15px; border-radius: 5px;">ABRIR CUENTA</a>
+    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 5px 12px; border-radius: 4px;">ABRIR CUENTA</a>
   </div>
 </nav>
 
 <header>
   <h1>STARK TECNOLOGÍA</h1>
-  <p style="font-size: 1.2rem; max-width: 700px; margin-top: 15px;">Conectando el mundo industrial con el universo digital a través de la tokenización real.</p>
-  <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-main">Regístrate Ahora</a>
+  <p>Conectando el mundo industrial con el universo digital a través de la tokenización real y segura en Blockchain.</p>
+  <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-main">COMENZAR AHORA</a>
 </header>
 
-<section id="beneficios">
+<section id="info">
+  <h2>Ecosistema Industrial</h2>
   <div class="grid">
     <div class="card">
-      <h3 style="color: var(--accent);">🏗️ Producción Real</h3>
-      <p>Respaldo en empresas físicas como X3 XBLOCOS y STK Engenharia.</p>
+      <h3>🏗️ Producción Física</h3>
+      <p>Respaldo en empresas de trayectoria real como X3 XBLOCOS y STK Engenharia.</p>
     </div>
     <div class="card">
-      <h3 style="color: var(--accent);">🔗 Blockchain</h3>
-      <p>Transparencia total y seguridad en cada transacción y cierre mensual.</p>
+      <h3>🔐 Seguridad Digital</h3>
+      <p>Operaciones transparentes registradas en Blockchain para tu total tranquilidad.</p>
     </div>
     <div class="card">
-      <h3 style="color: var(--accent);">📈 Rentabilidad</h3>
-      <p>Modelos de negocio diseñados para maximizar tu capital de forma inteligente.</p>
+      <h3>📈 Crecimiento</h3>
+      <p>Participa en un modelo de rentabilidades distribuidas por la comercialización industrial.</p>
     </div>
   </div>
 </section>
 
-<section id="contacto" style="background: rgba(255,255,255,0.02); border-radius: 30px;">
-  <div style="text-align: center; padding: 40px;">
-    <h2>Asesoría Personalizada</h2>
-    <p>¿Tienes dudas sobre cómo empezar? Escríbeme directamente por WhatsApp.</p>
-    <a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20información%20sobre%20Stark" target="_blank" class="btn-main" style="background: #25d366; display: inline-flex; align-items: center; gap: 10px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WA"> Contactar por WhatsApp
-    </a>
+<section id="contacto" style="text-align: center;">
+  <div class="card" style="max-width: 600px; margin: auto;">
+    <h2>¿Necesitas ayuda?</h2>
+    <p style="margin-bottom: 25px;">Si tienes dudas sobre el registro o los beneficios, escríbeme directamente.</p>
+    <a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20información%20sobre%20Stark" target="_blank" class="btn-main" style="background: #25d366;">HABLAR POR WHATSAPP</a>
   </div>
 </section>
 
 <a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20información%20sobre%20Stark" class="whatsapp-btn" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="30">
 </a>
 
 <footer>
-  <p><b>STARK TECNOLOGÍA</b> - Ecosistema de Tokenización Industrial</p>
-  <p style="font-size: 0.8rem; opacity: 0.6; max-width: 600px; margin: 20px auto;">
-    Operaciones basadas en blockchain. Registrada en Panamá. La inversión en activos digitales conlleva riesgos; asegúrese de comprender el modelo de negocio antes de participar.
-  </p>
+  <p>© 2026 STARK TECNOLOGÍA - Consultor Independiente: polet87</p>
+  <p>Registrada en Panamá. El uso de tecnología blockchain garantiza la transparencia de los activos.</p>
 </footer>
 
 <script type="text/javascript">
