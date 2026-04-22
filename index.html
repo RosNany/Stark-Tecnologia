@@ -41,6 +41,13 @@
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
+    /* Contenedor del idioma con el icono del mundo */
+    .lang-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     header {
       height: 90vh;
       display: flex;
@@ -199,7 +206,10 @@
 <nav>
   <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary);">STARK</div>
   <div style="display: flex; align-items: center; gap: 15px;">
-    <div id="google_translate_element"></div>
+    <div class="lang-container">
+      <span style="font-size: 1.2rem;">🌐</span>
+      <div id="google_translate_element"></div>
+    </div>
     <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.8rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 5px 12px; border-radius: 4px; font-weight: bold;">ABRIR CUENTA</a>
   </div>
 </nav>
@@ -260,9 +270,11 @@
         <p style="margin: 0; font-size: 0.75rem;">DIARIO (0.5671%)</p>
         <div id="diario" class="calc-val">0.00 USDT</div>
       </div>
-      <div class="calc-res-box">
-        <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
-        <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
+      <div class="calc-grid">
+        <div class="calc-res-box">
+          <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
+          <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
+        </div>
       </div>
     </div>
     <p style="margin-top: 25px; font-size: 0.75rem; color: var(--text-dim);">*Proyección basada en el plan Win Win (4W).</p>
