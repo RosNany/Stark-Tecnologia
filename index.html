@@ -3,184 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stark Tecnología - Ros Nany</title>
+<title>Stark Tecnología</title>
 
 <style>
 body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0b0f1a, #111827);
-  color:white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a2540;
+    color: white;
 }
 
 header {
-  text-align:center;
-  padding:60px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #081c34;
 }
 
-h1 {
-  font-size:2.5em;
-  color:#00d4ff;
+header img {
+    height: 50px;
+}
+
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #FFD700;
+    font-size: 28px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    opacity: 0.8;
+}
+
+.button {
+    background: #FFD700;
+    color: black;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .section {
-  padding:40px 20px;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  padding:20px;
-  margin:15px;
-  border-radius:15px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
 }
 
-.btn {
-  background:#00d4ff;
-  padding:12px 25px;
-  color:black;
-  text-decoration:none;
-  border-radius:30px;
-  display:inline-block;
-  margin-top:15px;
-  font-weight:bold;
+.pack {
+    border: 1px solid #FFD700;
+}
+
+.social {
+    text-align: center;
+    padding: 20px;
+}
+
+.social a {
+    margin: 10px;
+    color: #FFD700;
+    text-decoration: none;
 }
 
 .lang {
-  position:fixed;
-  top:10px;
-  right:10px;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
-button {
-  margin:3px;
-  padding:5px 10px;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
+.lang button {
+    margin: 5px;
+    padding: 8px;
 }
 
+/* WhatsApp */
 .whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50%;
-  text-decoration:none;
-  color:white;
-}
-
-.small {
-  font-size:12px;
-  opacity:0.7;
-  margin-top:20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
 }
 </style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://i.imgur.com/8Km9tLL.png">
+</header>
+
+<div class="hero">
+    <h1 id="title">Conecta con la economía digital</h1>
+    <p id="desc">Plataforma basada en tecnología blockchain y negocios reales.</p>
+    <a class="button" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Acceder</a>
+</div>
+
+<div class="section">
+
+<div class="card pack">
+    <h2 id="plan">Inicio desde</h2>
+    <p><strong>100 USDT</strong></p>
+</div>
+
+<div class="card">
+    <p id="benefit1">Participación en empresas reales</p>
+    <p id="benefit2">Sistema digital automatizado</p>
+    <p id="benefit3">Acceso global</p>
+</div>
+
+<div class="card">
+    <p id="risk">Participación conlleva riesgos. Resultados no garantizados.</p>
+</div>
+
+</div>
+
+<div class="social">
+    <p>Síguenos</p>
+    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=ihnmpho">Instagram</a>
+    <a href="https://www.facebook.com/share/1LHzRxKd2Z/">Facebook</a>
+    <a href="https://pro.tiktok.com/t/ZG9NdhREwf7FR-S5nNO/">TikTok</a>
+</div>
+
+<div class="lang">
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('de')">DE</button>
+</div>
+
+<a class="whatsapp" href="https://wa.me/4915565291942" target="_blank">💬</a>
 
 <script>
-function cambiarIdioma(idioma) {
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.getAttribute('data-lang') === idioma ? 'block' : 'none';
-  });
+function setLang(lang) {
+
+if (lang === 'es') {
+document.getElementById('title').innerText = "Conecta con la economía digital";
+document.getElementById('desc').innerText = "Plataforma basada en tecnología blockchain y negocios reales.";
+document.getElementById('plan').innerText = "Inicio desde";
+document.getElementById('benefit1').innerText = "Participación en empresas reales";
+document.getElementById('benefit2').innerText = "Sistema digital automatizado";
+document.getElementById('benefit3').innerText = "Acceso global";
+document.getElementById('risk').innerText = "Participación conlleva riesgos. Resultados no garantizados.";
+}
+
+if (lang === 'en') {
+document.getElementById('title').innerText = "Connect with the digital economy";
+document.getElementById('desc').innerText = "Platform based on blockchain technology and real businesses.";
+document.getElementById('plan').innerText = "Start from";
+document.getElementById('benefit1').innerText = "Participation in real companies";
+document.getElementById('benefit2').innerText = "Automated digital system";
+document.getElementById('benefit3').innerText = "Global access";
+document.getElementById('risk').innerText = "Participation involves risks. Results are not guaranteed.";
+}
+
+if (lang === 'de') {
+document.getElementById('title').innerText = "Verbinde dich mit der digitalen Wirtschaft";
+document.getElementById('desc').innerText = "Plattform basierend auf Blockchain-Technologie und realen Unternehmen.";
+document.getElementById('plan').innerText = "Start ab";
+document.getElementById('benefit1').innerText = "Teilnahme an realen Unternehmen";
+document.getElementById('benefit2').innerText = "Automatisiertes digitales System";
+document.getElementById('benefit3').innerText = "Globaler Zugang";
+document.getElementById('risk').innerText = "Teilnahme beinhaltet Risiken. Ergebnisse sind nicht garantiert.";
+}
+
 }
 </script>
 
-</head>
-
-<body onload="cambiarIdioma('es')">
-
-<div class="lang">
-  <button onclick="cambiarIdioma('es')">ES</button>
-  <button onclick="cambiarIdioma('en')">EN</button>
-  <button onclick="cambiarIdioma('de')">DE</button>
-</div>
-
-<header>
-  <h1>STARK TECNOLOGÍA</h1>
-
-  <p data-lang="es">Conectando el mundo industrial con el universo digital</p>
-  <p data-lang="en">Connecting the industrial world with the digital universe</p>
-  <p data-lang="de">Verbindung der industriellen Welt mit dem digitalen Universum</p>
-
-  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">ÚNETE AHORA</a>
-</header>
-
-<div class="section">
-
-  <h2 data-lang="es">¿Qué es Stark?</h2>
-  <h2 data-lang="en">What is Stark?</h2>
-  <h2 data-lang="de">Was ist Stark?</h2>
-
-  <p data-lang="es">
-  Plataforma que conecta empresas reales con tecnología blockchain,
-  creando oportunidades en la economía digital.
-  </p>
-
-  <p data-lang="en">
-  Platform connecting real companies with blockchain,
-  creating digital income opportunities.
-  </p>
-
-  <p data-lang="de">
-  Plattform zur Verbindung realer Unternehmen mit Blockchain
-  für digitale Einkommensmöglichkeiten.
-  </p>
-
-  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Registrarme</a>
-
-</div>
-
-<div class="section">
-
-  <h2 data-lang="es">Beneficios</h2>
-  <h2 data-lang="en">Benefits</h2>
-  <h2 data-lang="de">Vorteile</h2>
-
-  <div class="card" data-lang="es">Ingresos digitales</div>
-  <div class="card" data-lang="en">Digital income</div>
-  <div class="card" data-lang="de">Digitale Einnahmen</div>
-
-  <div class="card" data-lang="es">Transparencia</div>
-  <div class="card" data-lang="en">Transparency</div>
-  <div class="card" data-lang="de">Transparenz</div>
-
-  <div class="card" data-lang="es">Soporte continuo</div>
-  <div class="card" data-lang="en">Continuous support</div>
-  <div class="card" data-lang="de">Support</div>
-
-</div>
-
-<div class="section">
-
-  <h2 data-lang="es">Empieza hoy</h2>
-  <h2 data-lang="en">Start today</h2>
-  <h2 data-lang="de">Starte heute</h2>
-
-  <a class="btn" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">Crear cuenta</a>
-
-  <p class="small" data-lang="es">
-  Los resultados pueden variar y dependen de la participación individual.
-  </p>
-
-  <p class="small" data-lang="en">
-  Results may vary depending on individual participation.
-  </p>
-
-  <p class="small" data-lang="de">
-  Ergebnisse können je nach individueller Teilnahme variieren.
-  </p>
-
-</div>
-
-<div class="section">
-  <h2>Ros Nany</h2>
-  <a class="btn" href="https://wa.me/15565291942">WhatsApp</a>
-</div>
-
-<a class="whatsapp" href="https://wa.me/15565291942">💬</a>
-
 </body>
 </html>
+  
