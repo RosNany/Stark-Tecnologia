@@ -41,36 +41,30 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* ── Selector de idioma ── */
-    .lang-selector {
+    /* Estilo para el Mundo de Idioma sin recuadros */
+    .lang-wrapper {
       display: flex;
-      gap: 6px;
       align-items: center;
-    }
-
-    .lang-btn {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--text-dim);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      padding: 5px 11px;
-      border-radius: 50px;
       cursor: pointer;
-      transition: 0.25s;
-      font-family: 'Inter', sans-serif;
     }
 
-    .lang-btn:hover {
-      border-color: var(--primary);
-      color: white;
+    #google_translate_element {
+      display: inline-block;
     }
 
-    .lang-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
+    /* Ocultar el branding de Google Translate para que se vea más limpio */
+    .goog-te-gadget {
+      color: transparent !important;
+      font-size: 0 !important;
+    }
+    .goog-te-gadget .goog-te-combo {
+      background: transparent;
       color: white;
+      border: none;
+      font-size: 14px;
+      margin: 0;
+      cursor: pointer;
+      outline: none;
     }
 
     header {
@@ -81,6 +75,7 @@
       align-items: center;
       text-align: center;
       padding: 20px;
+      /* IMAGEN LLAMATIVA DE FONDO: CIUDAD TECNOLÓGICA */
       background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
                   url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover;
     }
@@ -156,10 +151,16 @@
 
     .card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
-    .card p { font-size: 0.85rem; color: var(--text-main); position: relative; z-index: 2; }
+    .card p { 
+      font-size: 0.85rem; 
+      color: var(--text-main); 
+      position: relative; z-index: 2;
+    }
+    
     .card b { color: var(--accent); font-size: 0.9rem; }
-    .card h3 { margin-top: 0; font-size: 1.2rem; position: relative; z-index: 2; color: #fff; }
+    .card h3 { margin-top: 0; font-size: 1.2rem; position: relative; z-index: 2; color: #fff;}
 
+    /* Simulador */
     .calc-container {
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
       padding: 50px;
@@ -216,79 +217,73 @@
 
 <nav>
   <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary);">STARK</div>
-  <div style="display: flex; align-items: center; gap: 15px;">
-
-    <!-- Selector de idioma personalizado -->
-    <div class="lang-selector">
-      <button class="lang-btn active" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
+  <div style="display: flex; align-items: center; gap: 20px;">
+    <div class="lang-wrapper">
+      <span style="font-size: 1.3rem; margin-right: 5px;">🌐</span>
+      <div id="google_translate_element"></div>
     </div>
-
-    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank"
-       style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 6px 14px; border-radius: 50px; font-weight: bold;" 
-       data-key="navBtn">ABRIR CUENTA</a>
+    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 6px 14px; border-radius: 50px; font-weight: bold; transition: 0.3s;">ABRIR CUENTA</a>
   </div>
 </nav>
 
 <header>
   <h1>STARK TECNOLOGÍA</h1>
-  <p data-key="heroSubtitle">Conectando la industria física con el universo digital mediante tokenización avanzada.</p>
+  <p>Conectando la industria física con el universo digital mediante tokenización avanzada.</p>
   <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-    <a class="btn" href="#info" data-key="btnExplore">EXPLORAR ECOSISTEMA</a>
-    <a class="btn btn-register" href="https://www.starktecnologia.com/consultant/polet87" target="_blank" data-key="btnRegister">REGÍSTRATE AHORA</a>
+    <a class="btn" href="#info">EXPLORAR ECOSISTEMA</a>
+    <a class="btn btn-register" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">REGÍSTRATE AHORA</a>
   </div>
 </header>
 
 <section id="info">
 
-  <h2 data-key="sec1Title">01. Visión y Seguridad</h2>
+  <h2>01. Visión y Seguridad</h2>
   <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500'); background-size:cover;">
-    <p><b data-key="modelLabel">Modelo:</b> <span data-key="modelText">Activos respaldados por producción industrial física.</span></p>
-    <p><b data-key="techLabel">Tecnología:</b> <span data-key="techText">Transparencia absoluta mediante registros inmutables en Blockchain.</span></p>
-    <p><b data-key="legalLabel">Legalidad:</b> <span data-key="legalText">Registrada bajo las leyes de Panamá para operaciones globales.</span></p>
+    <p><b>Modelo:</b> Activos respaldados por producción industrial física.</p>
+    <p><b>Tecnología:</b> Transparencia absoluta mediante registros inmutables en Blockchain.</p>
+    <p><b>Legalidad:</b> Registrada bajo las leyes de Panamá para operaciones globales.</p>
   </div>
 
-  <h2 data-key="sec2Title">02. Sectores de Impacto</h2>
+  <h2>02. Sectores de Impacto</h2>
   <div class="grid">
     <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=500'); background-size:cover;">
       <h3>🏗️ X3 XBLOCOS</h3>
-      <p data-key="card1Text">Líder en prefabricados de hormigón y materiales de construcción.</p>
+      <p>Líder en prefabricados de hormigón y materiales de construcción.</p>
     </div>
     <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500'); background-size:cover;">
       <h3>⚙️ STK Engenharia</h3>
-      <p data-key="card2Text">Ingeniería de alta precisión y mantenimiento de estructuras metálicas.</p>
+      <p>Ingeniería de alta precisión y mantenimiento de estructuras metálicas.</p>
     </div>
     <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1538108197067-284323d88682?q=80&w=500'); background-size:cover;">
-      <h3>🏥 <span data-key="card3Title">Salud y Oficinas</span></h3>
-      <p data-key="card3Text">Mantenimiento clínico y fabricación de mobiliario especializado.</p>
+      <h3>🏥 Salud y Oficinas</h3>
+      <p>Mantenimiento clínico y fabricación de mobiliario especializado.</p>
     </div>
   </div>
 
-  <h2 data-key="sec3Title">03. Productos Digitales</h2>
+  <h2>03. Productos Digitales</h2>
   <div class="grid" style="margin-bottom: 50px;">
     <div class="card" style="border-bottom: 4px solid var(--primary);">
-      <h3 data-key="prod1Title">Tokens Industriales</h3>
-      <p data-key="prod1Text">Participación directa en beneficios de fábricas reales.</p>
+      <h3>Tokens Industriales</h3>
+      <p>Participación directa en beneficios de fábricas reales.</p>
     </div>
     <div class="card" style="border-bottom: 4px solid var(--secondary);">
       <h3>Win Win (4W)</h3>
-      <p data-key="prod2Text">Retorno diario del <b>0.5671%</b> hasta alcanzar el 207%.</p>
+      <p>Retorno diario del <b>0.5671%</b> hasta alcanzar el 207%.</p>
     </div>
   </div>
 
-  <h2 data-key="sec4Title">04. Simulador de Inversión</h2>
+  <h2>04. Simulador de Inversión</h2>
   <div class="calc-container">
-    <p style="font-size: 1rem; margin: 0;" data-key="calcLabel">¿Cuánto deseas adquirir en tokens (USDT)?</p>
-    <input type="number" id="montoInput" class="calc-input" data-key-placeholder="calcPlaceholder" placeholder="Cantidad USDT" oninput="actualizar()">
+    <p style="font-size: 1rem; margin: 0;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
+    <input type="number" id="montoInput" class="calc-input" placeholder="Cantidad USDT" oninput="actualizar()">
     
     <div class="grid" style="margin-top: 20px;">
       <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
-        <p style="margin: 0; font-size: 0.75rem;" data-key="dailyLabel">DIARIO (0.5671%)</p>
+        <p style="margin: 0; font-size: 0.75rem;">DIARIO (0.5671%)</p>
         <div id="diario" class="calc-val">0.00 USDT</div>
       </div>
       <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
-        <p style="margin: 0; font-size: 0.75rem;" data-key="monthlyLabel">MENSUAL ESTIMADO</p>
+        <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
         <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
       </div>
     </div>
@@ -301,128 +296,13 @@
 </a>
 
 <footer>
-  © 2026 STARK TECNOLOGÍA - <span data-key="footerText">Innovación Industrial Digital</span>
+  © 2026 STARK TECNOLOGÍA - Innovación Industrial Digital<br>
+  Consultor Independiente: polet87 | +49 1556 5291942
 </footer>
 
-<script>
-// ── Traducciones ──────────────────────────────────────────────
-const translations = {
-  es: {
-    navBtn: "ABRIR CUENTA",
-    heroSubtitle: "Conectando la industria física con el universo digital mediante tokenización avanzada.",
-    btnExplore: "EXPLORAR ECOSISTEMA",
-    btnRegister: "REGÍSTRATE AHORA",
-    sec1Title: "01. Visión y Seguridad",
-    modelLabel: "Modelo:",
-    modelText: "Activos respaldados por producción industrial física.",
-    techLabel: "Tecnología:",
-    techText: "Transparencia absoluta mediante registros inmutables en Blockchain.",
-    legalLabel: "Legalidad:",
-    legalText: "Registrada bajo las leyes de Panamá para operaciones globales.",
-    sec2Title: "02. Sectores de Impacto",
-    card1Text: "Líder en prefabricados de hormigón y materiales de construcción.",
-    card2Text: "Ingeniería de alta precisión y mantenimiento de estructuras metálicas.",
-    card3Title: "Salud y Oficinas",
-    card3Text: "Mantenimiento clínico y fabricación de mobiliario especializado.",
-    sec3Title: "03. Productos Digitales",
-    prod1Title: "Tokens Industriales",
-    prod1Text: "Participación directa en beneficios de fábricas reales.",
-    prod2Text: "Retorno diario del <b>0.5671%</b> hasta alcanzar el 207%.",
-    sec4Title: "04. Simulador de Inversión",
-    calcLabel: "¿Cuánto deseas adquirir en tokens (USDT)?",
-    calcPlaceholder: "Cantidad USDT",
-    dailyLabel: "DIARIO (0.5671%)",
-    monthlyLabel: "MENSUAL ESTIMADO",
-    footerText: "Innovación Industrial Digital",
-  },
-  en: {
-    navBtn: "OPEN ACCOUNT",
-    heroSubtitle: "Connecting physical industry with the digital universe through advanced tokenization.",
-    btnExplore: "EXPLORE ECOSYSTEM",
-    btnRegister: "REGISTER NOW",
-    sec1Title: "01. Vision & Security",
-    modelLabel: "Model:",
-    modelText: "Assets backed by real physical industrial production.",
-    techLabel: "Technology:",
-    techText: "Absolute transparency through immutable Blockchain records.",
-    legalLabel: "Legality:",
-    legalText: "Registered under the laws of Panama for global operations.",
-    sec2Title: "02. Impact Sectors",
-    card1Text: "Leader in precast concrete and construction materials.",
-    card2Text: "High-precision engineering and metal structure maintenance.",
-    card3Title: "Health & Offices",
-    card3Text: "Clinical maintenance and specialized furniture manufacturing.",
-    sec3Title: "03. Digital Products",
-    prod1Title: "Industrial Tokens",
-    prod1Text: "Direct participation in real factory profits.",
-    prod2Text: "Daily return of <b>0.5671%</b> until reaching 207%.",
-    sec4Title: "04. Investment Simulator",
-    calcLabel: "How many tokens would you like to acquire (USDT)?",
-    calcPlaceholder: "Amount USDT",
-    dailyLabel: "DAILY (0.5671%)",
-    monthlyLabel: "ESTIMATED MONTHLY",
-    footerText: "Industrial Digital Innovation",
-  },
-  de: {
-    navBtn: "KONTO ÖFFNEN",
-    heroSubtitle: "Verbindung der physischen Industrie mit dem digitalen Universum durch fortschrittliche Tokenisierung.",
-    btnExplore: "ÖKOSYSTEM ERKUNDEN",
-    btnRegister: "JETZT REGISTRIEREN",
-    sec1Title: "01. Vision & Sicherheit",
-    modelLabel: "Modell:",
-    modelText: "Vermögenswerte, die durch physische Industrieproduktion gedeckt sind.",
-    techLabel: "Technologie:",
-    techText: "Absolute Transparenz durch unveränderliche Blockchain-Einträge.",
-    legalLabel: "Legalität:",
-    legalText: "Nach den Gesetzen Panamas für globale Operationen registriert.",
-    sec2Title: "02. Wirkungsbereiche",
-    card1Text: "Marktführer in Betonfertigteilen und Baumaterialien.",
-    card2Text: "Hochpräzisionsingenieurwesen und Wartung von Metallstrukturen.",
-    card3Title: "Gesundheit & Büros",
-    card3Text: "Klinische Wartung und Herstellung von Spezalmöbeln.",
-    sec3Title: "03. Digitale Produkte",
-    prod1Title: "Industrie-Token",
-    prod1Text: "Direkte Beteiligung an echten Fabrikgewinnen.",
-    prod2Text: "Tägliche Rendite von <b>0.5671%</b> bis zum Erreichen von 207%.",
-    sec4Title: "04. Investitionsrechner",
-    calcLabel: "Wie viele Token möchten Sie erwerben (USDT)?",
-    calcPlaceholder: "Betrag USDT",
-    dailyLabel: "TÄGLICH (0.5671%)",
-    monthlyLabel: "GESCHÄTZTER MONATSBETRAG",
-    footerText: "Industrielle Digitale Innovation",
-  }
-};
-
-let currentLang = 'es';
-
-function setLang(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-
-  // Actualizar botones activos
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-  });
-
-  // Actualizar todos los elementos con data-key
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const key = el.getAttribute('data-key');
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-
-  // Actualizar placeholders
-  document.querySelectorAll('[data-key-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-key-placeholder');
-    if (t[key] !== undefined) el.placeholder = t[key];
-  });
-
-  // Actualizar lang del html
-  document.documentElement.lang = lang;
-
-  // Resetear calculadora
-  document.getElementById('montoInput').value = '';
-  document.getElementById('diario').innerText = '0.00 USDT';
-  document.getElementById('mensual').innerText = '0.00 USDT';
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
 
 function actualizar() {
@@ -434,6 +314,7 @@ function actualizar() {
   document.getElementById('mensual').innerText = mensual.toLocaleString('en-US', {minimumFractionDigits: 2}) + " USDT";
 }
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
