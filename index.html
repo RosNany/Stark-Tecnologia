@@ -12,15 +12,27 @@
       --accent: #60a5fa;
       --secondary: #10b981;
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.8);
+      --card-bg: rgba(30, 41, 59, 0.85);
       --text-main: #f1f5f9;
       --text-dim: #94a3b8;
     }
 
+    /* ELIMINAR BARRA DE GOOGLE TRANSLATE */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+    body { top: 0px !important; }
+    .goog-te-gadget-simple {
+      background-color: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      cursor: pointer;
+    }
+    .goog-te-menu-value span { color: transparent !important; font-size: 0 !important; }
+    .goog-te-menu-value:before { content: '🌐'; font-size: 1.5rem; color: white; }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+      background: #0f172a;
       color: var(--text-main);
       line-height: 1.6;
       scroll-behavior: smooth;
@@ -33,38 +45,12 @@
       background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
-      padding: 10px 25px;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* Estilo para el Mundo de Idioma sin recuadros */
-    .lang-wrapper {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    #google_translate_element {
-      display: inline-block;
-    }
-
-    /* Ocultar el branding de Google Translate para que se vea más limpio */
-    .goog-te-gadget {
-      color: transparent !important;
-      font-size: 0 !important;
-    }
-    .goog-te-gadget .goog-te-combo {
-      background: transparent;
-      color: white;
-      border: none;
-      font-size: 14px;
-      margin: 0;
-      cursor: pointer;
-      outline: none;
     }
 
     header {
@@ -75,52 +61,37 @@
       align-items: center;
       text-align: center;
       padding: 20px;
-      /* IMAGEN LLAMATIVA DE FONDO: CIUDAD TECNOLÓGICA */
       background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover;
+                  url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop') center/cover;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-size: clamp(2.2rem, 7vw, 4rem);
       margin: 0;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       background: linear-gradient(to right, #fff, var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
     }
 
-    header p {
-      font-size: 1.1rem;
-      margin-top: 15px;
-      opacity: 0.9;
-      max-width: 600px;
-    }
-
     .btn {
       display: inline-block;
       margin-top: 30px;
-      padding: 15px 35px;
+      padding: 14px 30px;
       background: var(--primary);
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
       transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      font-size: 0.9rem;
     }
 
-    .btn-register {
-      background: var(--secondary);
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-    }
+    .btn-register { background: var(--secondary); }
 
-    section {
-      padding: 100px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
 
     h2 {
       font-family: 'Orbitron', sans-serif;
@@ -128,65 +99,44 @@
       border-left: 4px solid var(--primary);
       padding-left: 15px;
       margin-bottom: 40px;
+      font-size: 1.5rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
     .card {
       background: var(--card-bg);
-      padding: 35px;
+      padding: 30px;
       border-radius: 20px;
-      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: 0.3s;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+    .card p { font-size: 0.85rem; color: var(--text-dim); }
+    .card h3 { margin-top: 0; font-size: 1.1rem; color: #fff; }
 
-    .card p { 
-      font-size: 0.85rem; 
-      color: var(--text-main); 
-      position: relative; z-index: 2;
-    }
-    
-    .card b { color: var(--accent); font-size: 0.9rem; }
-    .card h3 { margin-top: 0; font-size: 1.2rem; position: relative; z-index: 2; color: #fff;}
-
-    /* Simulador */
     .calc-container {
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
-      padding: 50px;
+      padding: 40px;
       border-radius: 25px;
       text-align: center;
       border: 1px solid var(--primary);
     }
 
     .calc-input {
-      padding: 15px;
+      padding: 12px;
       width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
+      max-width: 250px;
+      border-radius: 10px;
       border: 1px solid var(--primary);
       margin: 20px 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-align: center;
       background: #0f172a;
       color: white;
     }
 
-    .calc-val {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--secondary);
-    }
+    .calc-val { font-size: 1.6rem; font-weight: bold; color: var(--secondary); }
 
     .whatsapp-btn {
       position: fixed;
@@ -205,7 +155,7 @@
 
     footer {
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
       font-size: 0.8rem;
       background: #020617;
       color: var(--text-dim);
@@ -216,13 +166,11 @@
 <body>
 
 <nav>
-  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary);">STARK</div>
+  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary); font-size: 1.1rem;">STARK</div>
   <div style="display: flex; align-items: center; gap: 20px;">
-    <div class="lang-wrapper">
-      <span style="font-size: 1.3rem; margin-right: 5px;">🌐</span>
-      <div id="google_translate_element"></div>
-    </div>
-    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 6px 14px; border-radius: 50px; font-weight: bold; transition: 0.3s;">ABRIR CUENTA</a>
+    <div id="google_translate_element"></div>
+    
+    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.75rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 6px 14px; border-radius: 50px; font-weight: bold;">ABRIR CUENTA</a>
   </div>
 </nav>
 
@@ -238,7 +186,7 @@
 <section id="info">
 
   <h2>01. Visión y Seguridad</h2>
-  <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500'); background-size:cover;">
+  <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500') center/cover;">
     <p><b>Modelo:</b> Activos respaldados por producción industrial física.</p>
     <p><b>Tecnología:</b> Transparencia absoluta mediante registros inmutables en Blockchain.</p>
     <p><b>Legalidad:</b> Registrada bajo las leyes de Panamá para operaciones globales.</p>
@@ -246,15 +194,15 @@
 
   <h2>02. Sectores de Impacto</h2>
   <div class="grid">
-    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=500'); background-size:cover;">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=500') center/cover;">
       <h3>🏗️ X3 XBLOCOS</h3>
       <p>Líder en prefabricados de hormigón y materiales de construcción.</p>
     </div>
-    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500'); background-size:cover;">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500') center/cover;">
       <h3>⚙️ STK Engenharia</h3>
       <p>Ingeniería de alta precisión y mantenimiento de estructuras metálicas.</p>
     </div>
-    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1538108197067-284323d88682?q=80&w=500'); background-size:cover;">
+    <div class="card" style="background: linear-gradient(rgba(30,41,59,0.9), rgba(30,41,59,0.9)), url('https://images.unsplash.com/photo-1538108197067-284323d88682?q=80&w=500') center/cover;">
       <h3>🏥 Salud y Oficinas</h3>
       <p>Mantenimiento clínico y fabricación de mobiliario especializado.</p>
     </div>
@@ -274,16 +222,16 @@
 
   <h2>04. Simulador de Inversión</h2>
   <div class="calc-container">
-    <p style="font-size: 1rem; margin: 0;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
+    <p style="font-size: 0.9rem; margin: 0; color: white;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
     <input type="number" id="montoInput" class="calc-input" placeholder="Cantidad USDT" oninput="actualizar()">
     
     <div class="grid" style="margin-top: 20px;">
-      <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
-        <p style="margin: 0; font-size: 0.75rem;">DIARIO (0.5671%)</p>
+      <div style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 15px;">
+        <p style="margin: 0; font-size: 0.7rem; color: #aaa;">DIARIO (0.5671%)</p>
         <div id="diario" class="calc-val">0.00 USDT</div>
       </div>
-      <div style="background: rgba(15, 23, 42, 0.6); padding: 20px; border-radius: 15px;">
-        <p style="margin: 0; font-size: 0.75rem;">MENSUAL ESTIMADO</p>
+      <div style="background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 15px;">
+        <p style="margin: 0; font-size: 0.7rem; color: #aaa;">MENSUAL ESTIMADO</p>
         <div id="mensual" class="calc-val" style="color: var(--accent);">0.00 USDT</div>
       </div>
     </div>
@@ -302,7 +250,12 @@
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'es', 
+    includedLanguages: 'en,pt,it,fr,de',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
 }
 
 function actualizar() {
