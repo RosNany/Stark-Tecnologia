@@ -3,324 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Tecnología | Innovación y Liderazgo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Stark Tecnología | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- ESTILOS GENERALES (RESET Y BÁSICOS) --- */
         :root {
-            --primary: #007AFF; /* Azul tecnológico de acento */
-            --bg-body: #050505; /* Fondo casi negro para modo oscuro profesional */
-            --bg-card: #121212; /* Fondo de tarjetas ligeramente más claro */
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --border-color: #2a2a2a;
-            --max-width: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary: #007AFF;
+            --bg: #050505;
+            --card: #121212;
+            --text: #ffffff;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-        img, video { max-width: 100%; height: auto; display: block; }
-
-        /* --- UTILIDADES DE DISEÑO --- */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
             text-align: center;
-            margin-bottom: 60px;
-            letter-spacing: -1px;
         }
 
-        .section-title span { color: var(--primary); }
-
-        /* --- BARRA DE NAVEGACIÓN --- */
-        header {
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(10px); /* Efecto cristal esmerilado */
-        }
-
-        nav {
+        /* Selector de Idioma */
+        .lang-switcher {
+            padding: 10px;
+            background: #1a1a1a;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-nav img {
-            height: 50px; /* Ajusta según el tamaño de tu imagen de logo original */
-        }
-
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* --- SECCIÓN HERO (PORTADA) --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            /* Usamos la imagen del nuevo proyecto como fondo con un degradado para legibilidad */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(5,5,5,1)), url('ruta/a/tu/image_3.png') no-repeat center center/cover;
-            padding-top: 100px; /* Espacio para el header fijo */
+            gap: 15px;
         }
 
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
+        .lang-switcher button {
+            background: none;
+            border: 1px solid #444;
             color: white;
-            padding: 15px 35px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: 0.3s ease;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
         }
 
-        .btn:hover { background-color: #0062cc; transform: translateY(-3px); }
+        .lang-switcher button:hover { background: var(--primary); }
 
-        /* --- SECCIÓN LIDERAZGO (CEO) --- */
-        .ceo-section { padding: 100px 0; border-bottom: 1px solid var(--border-color); }
+        header { padding: 40px 20px; border-bottom: 1px solid #222; }
+        .logo-img { height: 80px; margin-bottom: 20px; }
 
-        .ceo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 50px;
-            align-items: center;
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        .section { margin-bottom: 80px; }
+        img { width: 100%; max-width: 600px; border-radius: 12px; margin: 20px 0; border: 1px solid #333; }
+
+        /* Calculadora */
+        .calc-container {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+            max-width: 400px;
+            margin: 40px auto;
         }
 
-        .ceo-image {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 4px solid var(--bg-card);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
         }
 
-        .ceo-content h2 { font-size: 2rem; margin-bottom: 10px; }
-        .ceo-content .subtitle { color: var(--primary); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-        .ceo-content p { color: var(--text-muted); margin-bottom: 15px; font-size: 1.1rem; }
-
-        /* --- SECCIÓN INSTALACIONES --- */
-        .facilities-section { padding: 100px 0; background-color: var(--bg-card); }
-
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .calc-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .facility-item {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
-        }
-
-        .facility-item:hover { transform: translateY(-5px); border-color: var(--primary); }
-
-        .facility-item img { width: 100%; height: 250px; object-fit: cover; }
-        .facility-info { padding: 25px; }
-        .facility-info h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .facility-info p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- SECCIÓN NUEVO PROYECTO --- */
-        .project-section { padding: 100px 0; }
-
-        .project-card {
-            background-color: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            overflow: hidden;
-            gap: 0;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
-        }
-
-        .project-media {
-            padding: 20px;
-            background: #000; /* Fondo negro puro para resaltar el render */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-media img {
-            max-height: 500px;
-            object-fit: contain;
-        }
-
-        .project-details { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
-        .project-details .tag {
-            display: inline-block;
-            background-color: rgba(0, 122, 255, 0.15);
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-        .project-details h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .project-details p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; }
-
-        .store-buttons { display: flex; gap: 15px; margin-top: auto; }
-        .store-buttons a img { height: 45px; }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        footer .logo-footer img { height: 60px; margin-bottom: 20px; }
-
-        /* --- RESPONSIVE (MÓVILES) --- */
-        @media (max-width: 992px) {
-            .hero-content h1 { font-size: 3.5rem; }
-            .ceo-grid { grid-template-columns: 1fr; text-align: center; }
-            .ceo-image { max-width: 300px; margin: 0 auto; }
-            .project-card { grid-template-columns: 1fr; }
-            .project-details { padding: 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .section-title { font-size: 2rem; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .nav-links { display: none; } /* Ocultar menú en móvil para simplicidad */
-        }
+        h2 { color: var(--primary); font-size: 2rem; }
+        p { color: #ccc; font-size: 1.1rem; line-height: 1.6; }
     </style>
 </head>
 <body>
 
+    <div class="lang-switcher">
+        <button onclick="changeLang('es')">Español</button>
+        <button onclick="changeLang('en')">English</button>
+        <button onclick="changeLang('de')">Deutsch</button>
+    </div>
+
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo-nav">
-                    <img src="ruta/a/tu/logo_original.png" alt="Stark Tecnología Logo">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#liderazgo">Liderazgo</a></li>
-                    <li><a href="#instalaciones">Instalaciones</a></li>
-                    <li><a href="#proyecto">Nuevo Proyecto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <img src="logo.png" alt="Stark Tecnología" class="logo-img">
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="container hero-content">
-            <h1>Innovación que impulsa el futuro.</h1>
-            <p>En Stark Tecnología, diseñamos soluciones avanzadas para los desafíos del mañana, integrando hardware y software de vanguardia.</p>
-            <a href="#proyecto" class="btn">Explorar Proyecto</a>
+    <div class="container">
+        
+        <div class="section">
+            <h3 id="txt-vision" style="color:var(--primary); text-transform: uppercase; letter-spacing: 2px;">Nuestra Visión</h3>
+            <h2 id="txt-liderazgo">Liderazgo con Propósito</h2>
+            <img src="ceo.jpg" alt="CEO Stark Tecnología">
+            <p id="txt-mission">"Nuestra misión es clara: democratizar el acceso a la tecnología avanzada. No solo creamos productos, construimos las herramientas que permitirán a la próxima generación de innovadores cambiar el mundo."</p>
         </div>
-    </section>
 
-    <section id="liderazgo" class="ceo-section">
-        <div class="container">
-            <div class="ceo-grid">
-                <div class="ceo-image">
-                    <img src="ruta/a/tu/image_1.png" alt="CEO de Stark Tecnología">
-                </div>
-                <div class="ceo-content">
-                    <div class="subtitle">Nuestra Visión</div>
-                    <h2>Liderazgo con Propósito</h2>
-                    <p>"Nuestra misión es clara: democratizar el acceso a la tecnología avanzada. No solo creamos productos, construimos las herramientas que permitirán a la próxima generación de innovadores cambiar el mundo."</p>
-                    <p>Con años de experiencia en la industria, nuestro equipo directivo guía a Stark Tecnología hacia nuevos horizontes de eficiencia y conectividad.</p>
-                </div>
+        <hr style="border: 0.5px solid #222;">
+
+        <div class="section">
+            <h2 id="txt-empresa">Nuestras Instalaciones</h2>
+            <img src="empresa.jpg" alt="Instalaciones Stark">
+            <p id="txt-empresa-desc">Infraestructura de vanguardia dedicada al desarrollo de soluciones tecnológicas de alta precisión.</p>
+        </div>
+
+        <div class="section">
+            <h2 id="txt-calc-title">Calculadora de Presupuesto Base</h2>
+            <div class="calc-container">
+                <p id="txt-calc-ins">Ingresa las horas estimadas:</p>
+                <input type="number" id="horas" placeholder="Ej: 40">
+                <button class="calc-btn" onclick="calcular()">Calcular</button>
+                <h3 id="resultado">Total: $0</h3>
             </div>
         </div>
-    </section>
 
-    <section id="instalaciones" class="facilities-section">
-        <div class="container">
-            <h2 class="section-title">Nuestras <span>Instalaciones</span></h2>
-            <div class="facilities-grid">
-                <div class="facility-item">
-                    <img src="ruta/a/tu/image_2.png" alt="Planta de Producción Stark">
-                    <div class="facility-info">
-                        <h3>Centro de Producción de Alta Precisión</h3>
-                        <p>Contamos con infraestructura industrial optimizada para la fabricación a escala de componentes electrónicos y ensamblaje final.</p>
-                    </div>
-                </div>
-                </div>
+        <div class="section">
+            <h2 id="txt-proyecto">Nuevo Proyecto: Drive GPS</h2>
+            <img src="proyecto.jpg" alt="Drive GPS">
+            <p>#BIENVENIDOAL//FUTURO</p>
         </div>
-    </section>
 
-    <section id="proyecto" class="project-section">
-        <div class="container">
-            <h2 class="section-title">El Nuevo <span>Estándar</span></h2>
-            <div class="project-card">
-                <div class="project-media">
-                    <img src="ruta/a/tu/image_3.png" alt="Drive GPS Nuevo Proyecto Render">
-                </div>
-                <div class="project-details">
-                    <span class="tag">Próximo Lanzamiento</span>
-                    <h2>Drive GPS: Conectividad Inteligente</h2>
-                    <p>Presentamos Drive GPS, la plataforma integral que redefine la navegación y gestión vehicular. Integración profunda con hardware propietario para una precisión sin precedentes.</p>
-                    <p>#BENVIENIDOAL//FUTURO</p>
-                    <div class="store-buttons">
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store"></a>
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <div class="logo-footer">
-                <img src="ruta/a/tu/logo_original.png" alt="Stark Tecnología Logo Vertical">
-            </div>
-            <p>&copy; 2024 Stark Tecnología. Todos los derechos reservados.</p>
-            <p>Innovación | Calidad | Futuro</p>
-        </div>
-    </footer>
+    <script>
+        // TRADUCCIONES
+        const data = {
+            es: {
+                vision: "Nuestra Visión",
+                liderazgo: "Liderazgo con Propósito",
+                mission: '"Nuestra misión es clara: democratizar el acceso a la tecnología avanzada. No solo creamos productos, construimos las herramientas que permitirán a la próxima generación de innovadores cambiar el mundo."',
+                empresa: "Nuestras Instalaciones",
+                calc: "Calculadora de Presupuesto Base",
+                calc_ins: "Ingresa las horas estimadas:",
+                proyecto: "Nuevo Proyecto: Drive GPS"
+            },
+            en: {
+                vision: "Our Vision",
+                liderazgo: "Leadership with Purpose",
+                mission: '"Our mission is clear: to democratize access to advanced technology. We don\'t just create products, we build the tools for the next generation."',
+                empresa: "Our Facilities",
+                calc: "Budget Calculator",
+                calc_ins: "Enter estimated hours:",
+                proyecto: "New Project: Drive GPS"
+            },
+            de: {
+                vision: "Unsere Vision",
+                liderazgo: "Führung mit Zielsetzung",
+                mission: '"Unsere Mission ist klar: den Zugang zu fortschrittlicher Technologie zu demokratisieren. Wir bauen die Werkzeuge für die Zukunft."',
+                empresa: "Unsere Anlagen",
+                calc: "Budget-Rechner",
+                calc_ins: "Geschätzte Stunden eingeben:",
+                proyecto: "Neues Projekt: Drive GPS"
+            }
+        };
 
+        function changeLang(lang) {
+            document.getElementById('txt-vision').innerText = data[lang].vision;
+            document.getElementById('txt-liderazgo').innerText = data[lang].liderazgo;
+            document.getElementById('txt-mission').innerText = data[lang].mission;
+            document.getElementById('txt-empresa').innerText = data[lang].empresa;
+            document.getElementById('txt-calc-title').innerText = data[lang].calc;
+            document.getElementById('txt-calc-ins').innerText = data[lang].calc_ins;
+            document.getElementById('txt-proyecto').innerText = data[lang].proyecto;
+        }
+
+        function calcular() {
+            const horas = document.getElementById('horas').value;
+            const total = horas * 50; // Precio ejemplo $50 por hora
+            document.getElementById('resultado').innerText = "Total: $" + total;
+        }
+    </script>
 </body>
 </html>
