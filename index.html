@@ -1,280 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STARK TECNOLOGÍA | Ecosistema Blockchain</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stark Tecnología | Innovación y Futuro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007AFF; /* Azul tecnológico */
+            --bg: #0a0a0a;
+            --card-bg: #161616;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+        }
 
-  <style>
-    :root {
-      --primary: #3b82f6;
-      --accent: #60a5fa;
-      --secondary: #10b981;
-      --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.85);
-      --text-main: #f1f5f9;
-      --text-dim: #94a3b8;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    /* --- BLOQUE CRÍTICO PARA ELIMINAR BARRA DE GOOGLE --- */
-    .goog-te-banner-frame.skiptranslate { display: none !important; }
-    .goog-te-gadget-icon { display: none !important; }
-    body { top: 0px !important; position: static !important; }
-    .skiptranslate iframe { display: none !important; }
-    
-    /* Estilo del icono del mundo */
-    .goog-te-gadget-simple {
-      background-color: transparent !important;
-      border: none !important;
-      padding: 0 !important;
-      cursor: pointer;
-      display: flex !important;
-      align-items: center !important;
-    }
-    .goog-te-menu-value span { display: none !important; }
-    .goog-te-menu-value:before { 
-      content: '🌐'; 
-      font-size: 1.4rem; 
-      color: white;
-    }
-    /* --------------------------------------------------- */
+        /* Navegación */
+        nav {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0f172a;
-      color: var(--text-main);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
 
-    header {
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                  url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop') center/cover;
-    }
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2rem, 7vw, 3.5rem);
-      margin: 0;
-      letter-spacing: 3px;
-      background: linear-gradient(to right, #fff, var(--primary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-    }
+        /* Botones */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 28px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
-      font-size: 0.85rem;
-    }
+        /* Servicios / Proyectos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px 10%;
+        }
 
-    .btn-register { background: var(--secondary); }
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
 
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        .card:hover { border-color: var(--primary); }
+        .card h3 { margin-top: 0; color: var(--primary); }
 
-    h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      border-left: 4px solid var(--primary);
-      padding-left: 15px;
-      margin-bottom: 35px;
-      font-size: 1.4rem;
-    }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-
-    .card {
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .card p { font-size: 0.8rem; color: var(--text-dim); }
-    .card h3 { margin-top: 0; font-size: 1rem; color: #fff; }
-
-    .calc-container {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid var(--primary);
-    }
-
-    .calc-input {
-      padding: 10px;
-      width: 100%;
-      max-width: 220px;
-      border-radius: 8px;
-      border: 1px solid var(--primary);
-      margin: 15px 0;
-      font-size: 1rem;
-      text-align: center;
-      background: #0f172a;
-      color: white;
-    }
-
-    .calc-val { font-size: 1.4rem; font-weight: bold; color: var(--secondary); }
-
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      z-index: 2000;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.75rem;
-      background: #020617;
-      color: var(--text-dim);
-    }
-  </style>
+        footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.9rem; }
+    </style>
 </head>
-
 <body>
 
-<nav>
-  <div style="font-family: 'Orbitron'; font-weight: bold; color: var(--primary); font-size: 1rem;">STARK</div>
-  <div style="display: flex; align-items: center; gap: 15px;">
-    <div id="google_translate_element"></div>
-    
-    <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" style="font-size: 0.7rem; color: var(--secondary); text-decoration: none; border: 1px solid var(--secondary); padding: 5px 12px; border-radius: 50px; font-weight: bold;">ABRIR CUENTA</a>
-  </div>
-</nav>
+    <nav>
+        <div class="logo">STARK <span>TECNOLOGÍA</span></div>
+        <div>
+            <a href="#" style="color: white; text-decoration: none; margin-left: 20px;">Inicio</a>
+            <a href="#" style="color: white; text-decoration: none; margin-left: 20px;">Proyectos</a>
+        </div>
+    </nav>
 
-<header>
-  <h1>STARK TECNOLOGÍA</h1>
-  <p style="font-size: 1rem; opacity: 0.8;">Conectando la industria física con el universo digital mediante tokenización avanzada.</p>
-  <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-    <a class="btn" href="#info">EXPLORAR</a>
-    <a class="btn btn-register" href="https://www.starktecnologia.com/consultant/polet87" target="_blank">REGÍSTRATE</a>
-  </div>
-</header>
+    <header class="hero">
+        <h1>El futuro es hoy.</h1>
+        <p>Soluciones tecnológicas avanzadas para el desarrollo de software y hardware de última generación.</p>
+        <a href="#contacto" class="btn">Contáctanos</a>
+    </header>
 
-<section id="info">
-  <h2>01. Visión y Seguridad</h2>
-  <div class="card" style="background: linear-gradient(rgba(30,41,59,0.95), rgba(30,41,59,0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500') center/cover;">
-    <p><b>Modelo:</b> Activos respaldados por producción industrial física.</p>
-    <p><b>Tecnología:</b> Transparencia absoluta mediante Blockchain.</p>
-    <p><b>Legalidad:</b> Registrada bajo las leyes de Panamá.</p>
-  </div>
+    <section class="grid">
+        <div class="card">
+            <h3>Desarrollo Web</h3>
+            <p>Interfaces modernas, rápidas y escalables utilizando las últimas tecnologías del mercado.</p>
+        </div>
+        <div class="card">
+            <h3>Inteligencia Artificial</h3>
+            <p>Implementación de modelos de aprendizaje automático para optimizar procesos industriales.</p>
+        </div>
+        <div class="card">
+            <h3>Ciberseguridad</h3>
+            <p>Protección de datos y auditorías de seguridad para infraestructuras críticas.</p>
+        </div>
+    </section>
 
-  <h2 style="margin-top:50px;">02. Sectores de Impacto</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🏗️ X3 XBLOCOS</h3>
-      <p>Líder en prefabricados de hormigón y materiales de construcción.</p>
-    </div>
-    <div class="card">
-      <h3>⚙️ STK Engenharia</h3>
-      <p>Ingeniería de alta precisión y mantenimiento industrial.</p>
-    </div>
-    <div class="card">
-      <h3>🏥 Salud y Oficinas</h3>
-      <p>Mantenimiento clínico y mobiliario especializado.</p>
-    </div>
-  </div>
-
-  <h2 style="margin-top:50px;">03. Productos Digitales</h2>
-  <div class="grid">
-    <div class="card" style="border-bottom: 3px solid var(--primary);">
-      <h3>Tokens Industriales</h3>
-      <p>Participación directa en beneficios de fábricas reales.</p>
-    </div>
-    <div class="card" style="border-bottom: 3px solid var(--secondary);">
-      <h3>Win Win (4W)</h3>
-      <p>Retorno diario del <b>0.5671%</b> hasta alcanzar el 207%.</p>
-    </div>
-  </div>
-
-  <h2 style="margin-top:50px;">04. Simulador de Inversión</h2>
-  <div class="calc-container">
-    <p style="font-size: 0.85rem; margin: 0; color: white;">¿Cuánto deseas adquirir en tokens (USDT)?</p>
-    <input type="number" id="montoInput" class="calc-input" placeholder="Cantidad USDT" oninput="actualizar()">
-    <div class="grid" style="margin-top: 15px;">
-      <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 12px;">
-        <p style="margin: 0; font-size: 0.65rem; color: #aaa;">DIARIO</p>
-        <div id="diario" class="calc-val">0.00</div>
-      </div>
-      <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 12px;">
-        <p style="margin: 0; font-size: 0.65rem; color: #aaa;">MENSUAL</p>
-        <div id="mensual" class="calc-val" style="color: var(--accent);">0.00</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<a href="https://wa.me/4915565291942?text=Hola,%20vengo%20de%20tu%20web" class="whatsapp-btn" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="28">
-</a>
-
-<footer>
-  © 2026 STARK TECNOLOGÍA<br>
-  Consultor: polet87 | +49 1556 5291942
-</footer>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'es', 
-    includedLanguages: 'en,pt,es', 
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-
-function actualizar() {
-  const monto = document.getElementById('montoInput').value || 0;
-  const tasaDiaria = 0.005671;
-  const diario = monto * tasaDiaria;
-  const mensual = diario * 30;
-  document.getElementById('diario').innerText = diario.toLocaleString('en-US', {minimumFractionDigits: 2}) + " USDT";
-  document.getElementById('mensual').innerText = mensual.toLocaleString('en-US', {minimumFractionDigits: 2}) + " USDT";
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <footer>
+        &copy; 2024 Stark Tecnología. Todos los derechos reservados.
+    </footer>
 
 </body>
 </html>
