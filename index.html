@@ -3,35 +3,520 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copiar Código Stark</title>
+<title>Stark Tecnología | Official Site</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-body{font-family:sans-serif;background:#0D2E6E;color:#fff;padding:20px;margin:0;}
-h2{color:#D4A017;text-align:center;margin-bottom:6px;}
-p{text-align:center;font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;}
-.btn{display:block;width:100%;max-width:420px;margin:0 auto 16px;padding:16px;background:#D4A017;color:#000;font-weight:800;font-size:16px;border:none;border-radius:10px;cursor:pointer;}
-.btn.ok{background:#25D366;color:#fff;}
-textarea{width:100%;height:200px;font-size:11px;font-family:monospace;background:#061A40;color:#aaffaa;border:1px solid #D4A017;border-radius:8px;padding:10px;box-sizing:border-box;}
-.steps{background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;max-width:500px;margin:16px auto 0;}
-.steps h3{color:#D4A017;margin:0 0 10px;font-size:14px;}
-.steps ol{margin:0;padding-left:20px;font-size:13px;line-height:2.2;}
-b{color:#F0C040;}
+:root{
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --blue-deep:#061A40;
+  --blue-mid:#0D2E6E;
+  --blue-bright:#1648B8;
+  --blue-accent:#2563EB;
+  --bg:#F4F7FF;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--blue-deep);}
+
+/* ── LANG (single dropdown) ── */
+.lang-bar{
+  background:var(--blue-deep);
+  padding:10px 16px;
+  display:flex;
+  justify-content:flex-start;
+  border-bottom:1px solid rgba(212,160,23,0.2);
+}
+.lang-select{position:relative;display:inline-block;}
+.lang-current{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(212,160,23,0.4);
+  color:var(--gold-light);
+  padding:9px 18px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  border-radius:8px;
+  font-family:'Montserrat',sans-serif;
+  letter-spacing:1px;
+  transition:all .2s;
+  min-width:105px;
+  justify-content:center;
+}
+.lang-current:hover{background:rgba(212,160,23,0.15);border-color:var(--gold);}
+.lang-current svg{transition:transform .25s;}
+.lang-current.open svg{transform:rotate(180deg);}
+.lang-menu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 6px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--blue-mid);
+  border:1.5px solid rgba(212,160,23,0.35);
+  border-radius:10px;
+  overflow:hidden;
+  min-width:120px;
+  z-index:999;
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
+}
+.lang-menu.open{display:block;animation:fadeDown .18s ease;}
+@keyframes fadeDown{from{opacity:0;transform:translateX(-50%) translateY(-6px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.lang-menu button{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  padding:10px 18px;
+  background:none;
+  border:none;
+  color:rgba(255,255,255,0.65);
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:background .15s,color .15s;
+  text-align:left;
+}
+.lang-menu button:hover{background:rgba(212,160,23,0.15);color:var(--gold-light);}
+.lang-menu button.selected{color:var(--gold);background:rgba(212,160,23,0.1);}
+.lang-menu button:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.07);}
+
+/* ── HEADER / HERO ── */
+.hero{
+  background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 50%,var(--blue-bright) 100%);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;z-index:1;padding:36px 20px 40px;text-align:center;}
+.logo-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:28px;}
+.logo-star-svg{width:56px;height:56px;filter:drop-shadow(0 0 12px rgba(212,160,23,0.6));}
+.logo-words{text-align:left;}
+.logo-stark{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:#fff;letter-spacing:4px;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.logo-tec{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold-light);letter-spacing:5px;margin-top:2px;}
+.hero-tagline{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(20px,5vw,30px);color:#fff;line-height:1.25;margin-bottom:10px;}
+.hero-tagline span{color:var(--gold-light);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;}
+.hero-ctas{display:flex;flex-direction:column;gap:12px;align-items:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 20px rgba(212,160,23,0.4);}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;backdrop-filter:blur(4px);}
+.btn-secondary:hover{background:rgba(255,255,255,0.2);border-color:#fff;}
+
+/* gold divider */
+.gold-bar{height:4px;background:linear-gradient(90deg,var(--blue-deep),var(--gold),var(--blue-deep));}
+
+/* ── STATS ── */
+.stats{background:var(--blue-deep);padding:20px;display:flex;justify-content:center;gap:0;flex-wrap:wrap;}
+.stat{flex:1;min-width:80px;max-width:140px;text-align:center;padding:12px 8px;border-right:1px solid rgba(255,255,255,0.1);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:var(--gold);line-height:1;}
+.stat-label{font-size:10px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.5px;}
+
+/* ── CONTAINER ── */
+.container{max-width:900px;margin:0 auto;padding:24px 16px;}
+
+/* ── CARDS ── */
+.card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:0 4px 24px rgba(6,26,64,0.09);border:1px solid rgba(212,160,23,0.15);margin-bottom:24px;}
+.section-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,5vw,28px);color:var(--blue-deep);line-height:1.2;margin-bottom:20px;}
+p{color:#4A5568;font-size:14px;line-height:1.75;}
+
+/* CEO */
+.ceo-layout{display:flex;flex-direction:column;align-items:center;gap:20px;}
+.ceo-photo-wrap{position:relative;display:inline-block;}
+.ceo-photo{width:180px;height:220px;object-fit:cover;object-position:top center;border-radius:16px;border:3px solid var(--gold);display:block;box-shadow:0 8px 32px rgba(6,26,64,0.2);}
+.ceo-badge{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid));color:var(--gold);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;white-space:nowrap;border:1px solid var(--gold);}
+.ceo-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--blue-deep);margin-top:20px;margin-bottom:2px;}
+.ceo-role{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.quote{font-style:italic;color:#2D3748;font-size:14px;line-height:1.8;border-left:4px solid var(--gold);padding-left:16px;text-align:left;margin:0 auto 16px;max-width:520px;}
+.bio{font-size:12px;color:#718096;max-width:500px;margin:0 auto 16px;}
+.social-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.social-link{color:var(--blue-mid);text-decoration:none;font-size:12px;font-weight:600;border:1.5px solid var(--blue-mid);padding:5px 14px;border-radius:20px;transition:all .2s;}
+.social-link:hover{background:var(--blue-mid);color:#fff;}
+
+/* Site image */
+.site-img{width:100%;border-radius:14px;margin:16px 0 0;border:2px solid rgba(212,160,23,0.2);display:block;box-shadow:0 4px 20px rgba(6,26,64,0.1);}
+
+/* ── PRODUCTS ── */
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+.prod-card{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:14px;padding:18px 14px;text-align:left;border:1px solid rgba(212,160,23,0.3);position:relative;overflow:hidden;}
+.prod-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(212,160,23,0.08);border-radius:50%;}
+.prod-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:4px;}
+.prod-ret{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--gold-light);line-height:1;}
+.prod-desc{font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;line-height:1.4;}
+.prod-min{display:inline-block;margin-top:10px;font-size:10px;background:rgba(212,160,23,0.15);color:var(--gold-light);padding:3px 10px;border-radius:10px;font-weight:600;}
+
+/* ── CALC ── */
+.calc-box{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:16px;padding:28px 20px;border:2px solid var(--gold);margin-top:8px;}
+.calc-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
+.calc-tab{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);padding:6px 14px;border-radius:20px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}
+.calc-tab.active,.calc-tab:hover{background:var(--gold);border-color:var(--gold);color:#000;}
+.calc-label{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
+.calc-input{width:100%;padding:13px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:20px;font-family:'Montserrat',sans-serif;font-weight:700;text-align:center;outline:none;transition:border .2s;}
+.calc-input:focus{border-color:var(--gold);}
+.calc-btn{width:100%;margin-top:12px;padding:13px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;border:none;border-radius:10px;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(212,160,23,0.3);}
+.calc-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
+#resultado{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--gold-light);margin-top:14px;}
+#resultado-detail{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;}
+
+/* ── CTA FINAL ── */
+.cta-final{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-bright) 100%);border-radius:20px;padding:36px 24px;text-align:center;border:2px solid var(--gold);position:relative;overflow:hidden;margin-bottom:32px;}
+.cta-final::after{content:'★';position:absolute;right:-10px;bottom:-20px;font-size:120px;color:rgba(212,160,23,0.06);pointer-events:none;}
+.cta-final h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:#fff;margin-bottom:8px;}
+.cta-final p{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:24px;}
+.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:center;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 16px rgba(212,160,23,0.35);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.3);}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-1px);}
+
+/* ── FOOTER ── */
+footer{background:var(--blue-deep);color:rgba(255,255,255,0.4);text-align:center;font-size:11px;padding:20px;border-top:2px solid var(--gold);}
+footer span{color:var(--gold);}
+
+/* ── FLOAT WA ── */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+
+hr.divider{border:none;border-top:1px solid rgba(212,160,23,0.2);margin:8px 0 24px;}
 </style>
 </head>
 <body>
-<h2>⭐ Stark Tecnología</h2>
-<p>Toca el botón dorado para copiar el código completo</p>
-<button class="btn" onclick="copiar()" id="btn">📋 Copiar código completo</button>
-<textarea id="code" readonly></textarea>
-<div class="steps">
-  <h3>📌 Pasos en GitHub:</h3>
-  <ol>a
-    <li>Ve a tu repo <b>rosnany.github.io</b></li>
-    <li>Toca <b>Add file → Create new file</b></li>
-    <li>Nombre: <b>index.html</b></li>
-    <li>Toca el editor y pega el código</li>
-    <li>Toca <b>Commit changes</b></li>
-    <li>Espera 2-3 min → visita <b>rosnany.github.io</b> ✅</li>
-  </ol>
+
+<!-- LANG — single dropdown -->
+<div class="lang-bar">
+  <div class="lang-select">
+    <button class="lang-current" id="langBtn" onclick="toggleLangMenu()">
+      <span id="lang-flag">🇪🇸</span>
+      <span id="lang-code">ES</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="lang-menu" id="langMenu">
+      <button onclick="selectLang('es','🇪🇸','ES')">🇪🇸 ES</button>
+      <button onclick="selectLang('en','🇺🇸','EN')">🇺🇸 EN</button>
+      <button onclick="selectLang('de','🇩🇪','DE')">🇩🇪 DE</button>
+    </div>
+  </div>
 </div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <svg class="logo-star-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="#D4A017"/>
+        <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="url(#sg)" opacity="0.6"/>
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0C040"/><stop offset="100%" stop-color="#A07010"/></linearGradient></defs>
+      </svg>
+      <div class="logo-words">
+        <div class="logo-stark">STARK</div>
+        <div class="logo-tec">TECNOLOGÍA</div>
+      </div>
+    </div>
+    <div class="hero-tagline" id="txt-tagline">El futuro de la <span>tokenización</span><br>está aquí</div>
+    <div class="hero-sub" id="txt-hero-sub">Inversiones inteligentes en tecnología blockchain, minería y movilidad</div>
+    <div class="hero-ctas">
+      <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        <span id="txt-btn-reg">Registrarme ahora</span>
+      </a>
+      <a href="https://wa.me/4915565291942?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.857L0 24l6.335-1.508A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.002-1.368l-.36-.214-3.76.895.953-3.657-.234-.376A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        <span id="txt-btn-wa">Consultar por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="gold-bar"></div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">14+</div><div class="stat-label" id="s1">AÑOS</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label" id="s2">PAÍSES</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label" id="s3">PRODUCTOS</div></div>
+  <div class="stat"><div class="stat-num">300%</div><div class="stat-label" id="s4">RET. MÁX.</div></div>
+</div>
+
+<div class="container">
+
+  <!-- CEO -->
+  <div class="card">
+    <div class="section-tag" id="txt-vision">Nuestra Visión</div>
+    <div class="section-title" id="txt-liderazgo">Liderazgo con Propósito</div>
+    <div class="ceo-layout">
+      <div class="ceo-photo-wrap">
+        <img src="ceo.jpg" alt="CEO" class="ceo-photo" id="ceo-img">
+        <div class="ceo-badge">CEO &amp; FOUNDER</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="ceo-name">Polet Vargas</div>
+        <div class="ceo-role" id="txt-ceo-role">Fundadora &amp; CEO</div>
+        <blockquote class="quote" id="txt-quote">"La tecnología blockchain no es el futuro — es el presente. Quienes actúan hoy, lideran mañana."</blockquote>
+        <p class="bio" id="txt-bio">Con más de 14 años en el sector tecnológico y financiero, Polet ha guiado a cientos de inversores hacia oportunidades reales en minería digital, tokenización de activos y movilidad eléctrica.</p>
+        <div class="social-links">
+          <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="social-link">🌐 Web oficial</a>
+          <a href="https://wa.me/4915565291942" target="_blank" class="social-link">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="card">
+    <div class="section-tag" id="txt-prod-tag">Portafolio</div>
+    <div class="section-title" id="txt-prod-title">Productos Tokenizados &amp; Exclusivos</div>
+    <div class="products-grid">
+      <div class="prod-card">
+        <div class="prod-name">Token One</div>
+        <div class="prod-ret">236.77% <span style="font-size:12px;opacity:0.7">máx.</span></div>
+        <div class="prod-desc" id="pd1">50% de ganancias de XBlocos Ltda. Pagos el día 5 de cada mes. Suministro: 1.000 unidades.</div>
+        <span class="prod-min" id="pm1">Valor: 380 USDT</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-name">Token Teem</div>
+        <div class="prod-ret">250% <span style="font-size:12px;opacity:0.7">máx.</span></div>
+        <div class="prod-desc" id="pd2">25% de ganancias de STK Engenharia Ltda. Pagos el día 5 de cada mes. Suministro: 500 unidades.</div>
+        <span class="prod-min" id="pm2">Valor: 500 USDT</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-name">Win Win</div>
+        <div class="prod-ret">207% <span style="font-size:12px;opacity:0.7">máx.</span></div>
+        <div class="prod-desc" id="pd3">Rentabilidad diaria del 0.5671%, garantizada. Pagos liberados el día 27 de cada mes.</div>
+        <span class="prod-min" id="pm3" style="font-size:9px;">15 – 100.000 USDT</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-name">Token Way</div>
+        <div class="prod-ret">300% <span style="font-size:12px;opacity:0.7">máx.</span></div>
+        <div class="prod-desc" id="pd4">Rentabilidad variable lun–vie. Retorno mensual entre 5% y 20%. Tarifa del 5% al retirar.</div>
+        <span class="prod-min" id="pm4" style="font-size:9px;">25 – 75.000 USDT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="card">
+    <div class="section-tag" id="txt-calc-tag">Herramienta</div>
+    <div class="section-title" id="txt-calc-title">Calculadora de Rendimiento</div>
+    <div class="calc-box">
+      <div class="calc-tabs">
+        <button class="calc-tab active" onclick="setRate(236.77,this)" id="ct1">Token One</button>
+        <button class="calc-tab" onclick="setRate(250,this)" id="ct2">Token Teem</button>
+        <button class="calc-tab" onclick="setRate(207,this)" id="ct3">Win Win</button>
+        <button class="calc-tab" onclick="setRate(300,this)" id="ct4">Token Way</button>
+      </div>
+      <div class="calc-label" id="txt-calc-label">Inversión inicial (USD)</div>
+      <input type="number" class="calc-input" id="calcInv" placeholder="1000" min="100">
+      <button class="calc-btn" onclick="calcRetorno()" id="txt-calc-btn">Calcular rendimiento anual</button>
+      <div id="resultado"></div>
+      <div id="resultado-detail"></div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="cta-final">
+    <h2 id="txt-cta-h">¿Listo para invertir en el futuro?</h2>
+    <p id="txt-cta-p">Únete a nuestra comunidad de inversores y empieza a generar rendimientos reales desde hoy.</p>
+    <div class="cta-btns">
+      <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        <span id="txt-cta-btn1">Crear mi cuenta</span>
+      </a>
+      <a href="https://wa.me/4915565291942?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.857L0 24l6.335-1.508A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.002-1.368l-.36-.214-3.76.895.953-3.657-.234-.376A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        <span id="txt-cta-btn2">Escribir por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>© 2024 <span>Stark Tecnología</span> · Todos los derechos reservados · <span>polet87</span></p>
+  <p style="margin-top:6px;font-size:10px;opacity:0.5">Las inversiones implican riesgos. Rentabilidades pasadas no garantizan resultados futuros.</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/4915565291942" target="_blank" class="wa-float" title="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.857L0 24l6.335-1.508A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.002-1.368l-.36-.214-3.76.895.953-3.657-.234-.376A9.818 9.818 0 1 1 12 21.818z"/></svg>
+</a>
+
 <script>
-const CODE = "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Stark Tecnolog\u00eda | Official Site</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap\" rel=\"stylesheet\">\n<style>\n:root{\n  --gold:#D4A017;\n  --gold-light:#F0C040;\n  --blue-deep:#061A40;\n  --blue-mid:#0D2E6E;\n  --blue-bright:#1648B8;\n  --blue-accent:#2563EB;\n  --bg:#F4F7FF;\n  --white:#FFFFFF;\n}\n*{box-sizing:border-box;margin:0;padding:0;}\nbody{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--blue-deep);}\n\n/* \u2500\u2500 LANG (single dropdown) \u2500\u2500 */\n.lang-bar{\n  background:var(--blue-deep);\n  padding:10px 16px;\n  display:flex;\n  justify-content:flex-start;\n  border-bottom:1px solid rgba(212,160,23,0.2);\n}\n.lang-select{position:relative;display:inline-block;}\n.lang-current{\n  display:inline-flex;\n  align-items:center;\n  gap:8px;\n  background:rgba(255,255,255,0.06);\n  border:1.5px solid rgba(212,160,23,0.4);\n  color:var(--gold-light);\n  padding:9px 18px;\n  font-size:13px;\n  font-weight:700;\n  cursor:pointer;\n  border-radius:8px;\n  font-family:'Montserrat',sans-serif;\n  letter-spacing:1px;\n  transition:all .2s;\n  min-width:105px;\n  justify-content:center;\n}\n.lang-current:hover{background:rgba(212,160,23,0.15);border-color:var(--gold);}\n.lang-current svg{transition:transform .25s;}\n.lang-current.open svg{transform:rotate(180deg);}\n.lang-menu{\n  display:none;\n  position:absolute;\n  top:calc(100% + 6px);\n  left:50%;\n  transform:translateX(-50%);\n  background:var(--blue-mid);\n  border:1.5px solid rgba(212,160,23,0.35);\n  border-radius:10px;\n  overflow:hidden;\n  min-width:120px;\n  z-index:999;\n  box-shadow:0 8px 24px rgba(0,0,0,0.35);\n}\n.lang-menu.open{display:block;animation:fadeDown .18s ease;}\n@keyframes fadeDown{from{opacity:0;transform:translateX(-50%) translateY(-6px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}\n.lang-menu button{\n  display:flex;\n  align-items:center;\n  gap:8px;\n  width:100%;\n  padding:10px 18px;\n  background:none;\n  border:none;\n  color:rgba(255,255,255,0.65);\n  font-family:'Montserrat',sans-serif;\n  font-size:13px;\n  font-weight:600;\n  letter-spacing:1px;\n  cursor:pointer;\n  transition:background .15s,color .15s;\n  text-align:left;\n}\n.lang-menu button:hover{background:rgba(212,160,23,0.15);color:var(--gold-light);}\n.lang-menu button.selected{color:var(--gold);background:rgba(212,160,23,0.1);}\n.lang-menu button:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.07);}\n\n/* \u2500\u2500 HEADER / HERO \u2500\u2500 */\n.hero{\n  background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 50%,var(--blue-bright) 100%);\n  padding:0;\n  position:relative;\n  overflow:hidden;\n}\n.hero::before{\n  content:'';position:absolute;inset:0;\n  background:url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");\n}\n.hero-inner{position:relative;z-index:1;padding:36px 20px 40px;text-align:center;}\n.logo-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:28px;}\n.logo-star-svg{width:56px;height:56px;filter:drop-shadow(0 0 12px rgba(212,160,23,0.6));}\n.logo-words{text-align:left;}\n.logo-stark{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:#fff;letter-spacing:4px;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,0.3);}\n.logo-tec{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold-light);letter-spacing:5px;margin-top:2px;}\n.hero-tagline{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(20px,5vw,30px);color:#fff;line-height:1.25;margin-bottom:10px;}\n.hero-tagline span{color:var(--gold-light);}\n.hero-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;}\n.hero-ctas{display:flex;flex-direction:column;gap:12px;align-items:center;}\n.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 20px rgba(212,160,23,0.4);}\n.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}\n.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;backdrop-filter:blur(4px);}\n.btn-secondary:hover{background:rgba(255,255,255,0.2);border-color:#fff;}\n\n/* gold divider */\n.gold-bar{height:4px;background:linear-gradient(90deg,var(--blue-deep),var(--gold),var(--blue-deep));}\n\n/* \u2500\u2500 STATS \u2500\u2500 */\n.stats{background:var(--blue-deep);padding:20px;display:flex;justify-content:center;gap:0;flex-wrap:wrap;}\n.stat{flex:1;min-width:80px;max-width:140px;text-align:center;padding:12px 8px;border-right:1px solid rgba(255,255,255,0.1);}\n.stat:last-child{border-right:none;}\n.stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:var(--gold);line-height:1;}\n.stat-label{font-size:10px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.5px;}\n\n/* \u2500\u2500 CONTAINER \u2500\u2500 */\n.container{max-width:900px;margin:0 auto;padding:24px 16px;}\n\n/* \u2500\u2500 CARDS \u2500\u2500 */\n.card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:0 4px 24px rgba(6,26,64,0.09);border:1px solid rgba(212,160,23,0.15);margin-bottom:24px;}\n.section-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}\n.section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,5vw,28px);color:var(--blue-deep);line-height:1.2;margin-bottom:20px;}\np{color:#4A5568;font-size:14px;line-height:1.75;}\n\n/* CEO */\n.ceo-layout{display:flex;flex-direction:column;align-items:center;gap:20px;}\n.ceo-photo-wrap{position:relative;display:inline-block;}\n.ceo-photo{width:180px;height:220px;object-fit:cover;object-position:top center;border-radius:16px;border:3px solid var(--gold);display:block;box-shadow:0 8px 32px rgba(6,26,64,0.2);}\n.ceo-badge{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid));color:var(--gold);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;white-space:nowrap;border:1px solid var(--gold);}\n.ceo-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--blue-deep);margin-top:20px;margin-bottom:2px;}\n.ceo-role{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}\n.quote{font-style:italic;color:#2D3748;font-size:14px;line-height:1.8;border-left:4px solid var(--gold);padding-left:16px;text-align:left;margin:0 auto 16px;max-width:520px;}\n.bio{font-size:12px;color:#718096;max-width:500px;margin:0 auto 16px;}\n.social-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}\n.social-link{color:var(--blue-mid);text-decoration:none;font-size:12px;font-weight:600;border:1.5px solid var(--blue-mid);padding:5px 14px;border-radius:20px;transition:all .2s;}\n.social-link:hover{background:var(--blue-mid);color:#fff;}\n\n/* Site image */\n.site-img{width:100%;border-radius:14px;margin:16px 0 0;border:2px solid rgba(212,160,23,0.2);display:block;box-shadow:0 4px 20px rgba(6,26,64,0.1);}\n\n/* \u2500\u2500 PRODUCTS \u2500\u2500 */\n.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}\n.prod-card{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:14px;padding:18px 14px;text-align:left;border:1px solid rgba(212,160,23,0.3);position:relative;overflow:hidden;}\n.prod-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(212,160,23,0.08);border-radius:50%;}\n.prod-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:4px;}\n.prod-ret{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--gold-light);line-height:1;}\n.prod-desc{font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;line-height:1.4;}\n.prod-min{display:inline-block;margin-top:10px;font-size:10px;background:rgba(212,160,23,0.15);color:var(--gold-light);padding:3px 10px;border-radius:10px;font-weight:600;}\n\n/* \u2500\u2500 CALC \u2500\u2500 */\n.calc-box{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:16px;padding:28px 20px;border:2px solid var(--gold);margin-top:8px;}\n.calc-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}\n.calc-tab{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);padding:6px 14px;border-radius:20px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}\n.calc-tab.active,.calc-tab:hover{background:var(--gold);border-color:var(--gold);color:#000;}\n.calc-label{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:600;}\n.calc-input{width:100%;padding:13px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:20px;font-family:'Montserrat',sans-serif;font-weight:700;text-align:center;outline:none;transition:border .2s;}\n.calc-input:focus{border-color:var(--gold);}\n.calc-btn{width:100%;margin-top:12px;padding:13px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;border:none;border-radius:10px;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(212,160,23,0.3);}\n.calc-btn:hover{background:var(--gold-light);transform:translateY(-1px);}\n#resultado{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--gold-light);margin-top:14px;}\n#resultado-detail{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;}\n\n/* \u2500\u2500 CTA FINAL \u2500\u2500 */\n.cta-final{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-bright) 100%);border-radius:20px;padding:36px 24px;text-align:center;border:2px solid var(--gold);position:relative;overflow:hidden;margin-bottom:32px;}\n.cta-final::after{content:'\u2605';position:absolute;right:-10px;bottom:-20px;font-size:120px;color:rgba(212,160,23,0.06);pointer-events:none;}\n.cta-final h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:#fff;margin-bottom:8px;}\n.cta-final p{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:24px;}\n.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:center;}\n.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 16px rgba(212,160,23,0.35);}\n.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}\n.btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:300px;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.3);}\n.btn-wa:hover{background:#1ebe5d;transform:translateY(-1px);}\n\n/* \u2500\u2500 FOOTER \u2500\u2500 */\nfooter{background:var(--blue-deep);color:rgba(255,255,255,0.4);text-align:center;font-size:11px;padding:20px;border-top:2px solid var(--gold);}\nfooter span{color:var(--gold);}\n\n/* \u2500\u2500 FLOAT WA \u2500\u2500 */\n.wa-float{position:fixed;bottom:22px;right:22px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:transform .2s;}\n.wa-float:hover{transform:scale(1.1);}\n\nhr.divider{border:none;border-top:1px solid rgba(212,160,23,0.2);margin:8px 0 24px;}\n</style>\n</head>\n<body>\n\n<!-- LANG \u2014 single dropdown -->\n<div class=\"lang-bar\">\n  <div class=\"lang-select\">\n    <button class=\"lang-current\" id=\"langBtn\" onclick=\"toggleLangMenu()\">\n      <span id=\"lang-flag\">\ud83c\uddea\ud83c\uddf8</span>\n      <span id=\"lang-code\">ES</span>\n      <svg width=\"10\" height=\"6\" viewBox=\"0 0 10 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M1 1L5 5L9 1\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      </svg>\n    </button>\n    <div class=\"lang-menu\" id=\"langMenu\">\n      <button onclick=\"selectLang('es','\ud83c\uddea\ud83c\uddf8','ES')\">\ud83c\uddea\ud83c\uddf8 ES</button>\n      <button onclick=\"selectLang('en','\ud83c\uddfa\ud83c\uddf8','EN')\">\ud83c\uddfa\ud83c\uddf8 EN</button>\n      <button onclick=\"selectLang('de','\ud83c\udde9\ud83c\uddea','DE')\">\ud83c\udde9\ud83c\uddea DE</button>\n    </div>\n  </div>\n</div>\n\n<!-- HERO -->\n<div class=\"hero\">\n  <div class=\"hero-inner\">\n    <div class=\"logo-wrap\">\n      <svg class=\"logo-star-svg\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n        <polygon points=\"50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35\" fill=\"#D4A017\"/>\n        <polygon points=\"50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35\" fill=\"url(#sg)\" opacity=\"0.6\"/>\n        <defs><linearGradient id=\"sg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#F0C040\"/><stop offset=\"100%\" stop-color=\"#A07010\"/></linearGradient></defs>\n      </svg>\n      <div class=\"logo-words\">\n        <div class=\"logo-stark\">STARK</div>\n        <div class=\"logo-tec\">TECNOLOG\u00cdA</div>\n      </div>\n    </div>\n    <div class=\"hero-tagline\" id=\"txt-tagline\">El futuro de la <span>tokenizaci\u00f3n</span><br>est\u00e1 aqu\u00ed</div>\n    <div class=\"hero-sub\" id=\"txt-hero-sub\">Inversiones inteligentes en tecnolog\u00eda blockchain, miner\u00eda y movilidad</div>\n    <div class=\"hero-ctas\">\n      <a href=\"https://www.starktecnologia.com/consultant/polet87\" target=\"_blank\" class=\"btn-primary\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><line x1=\"19\" y1=\"8\" x2=\"19\" y2=\"14\"/><line x1=\"22\" y1=\"11\" x2=\"16\" y2=\"11\"/></svg>\n        <span id=\"txt-btn-reg\">Registrarme ahora</span>\n      </a>\n      <a href=\"https://wa.me/4915565291942?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n\" target=\"_blank\" class=\"btn-secondary\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z\"/><path d=\"M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.857L0 24l6.335-1.508A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.002-1.368l-.36-.214-3.76.895.953-3.657-.234-.376A9.818 9.818 0 1 1 12 21.818z\"/></svg>\n        <span id=\"txt-btn-wa\">Consultar por WhatsApp</span>\n      </a>\n    </div>\n  </div>\n</div>\n<div class=\"gold-bar\"></div>\n\n<!-- STATS -->\n<div class=\"stats\">\n  <div class=\"stat\"><div class=\"stat-num\">14+</div><div class=\"stat-label\" id=\"s1\">A\u00d1OS</div></div>\n  <div class=\"stat\"><div class=\"stat-num\">3</div><div class=\"stat-label\" id=\"s2\">PA\u00cdSES</div></div>\n  <div class=\"stat\"><div class=\"stat-num\">4</div><div class=\"stat-label\" id=\"s3\">PRODUCTOS</div></div>\n  <div class=\"stat\"><div class=\"stat-num\">300%</div><div class=\"stat-label\" id=\"s4\">RET. M\u00c1X.</div></div>\n</div>\n\n<div class=\"container\">\n\n  <!-- CEO -->\n  <div class=\"card\">\n    <div class=\"section-tag\" id=\"txt-vision\">Nuestra Visi\u00f3n</div>\n    <div class=\"section-title\" id=\"txt-liderazgo\">Liderazgo con Prop\u00f3sito</div>\n    <div class=\"ceo-layout\">\n      <div class=\"ceo-photo-wrap\">\n        <img src=\"data:image/jpeg;base64,/9j/4QDYRXhpZgAATU0AKgAAAAgABwEAAAQAAAABAAAA5QEQAAIAAAAIAAAAYgEBAAQAAAABAAAA6AEyAAIAAAAUAAAAagESAAMAAAABAAEAAIdpAAQAAAABAAAAfgEPAAIAAAABAAAAAAAAAABETlktTlg5ADIwMjY6MDQ6MjggMTA6NTI6MzcAAAOSCAAEAAAAAQAAAACQBAACAAAAFAAAAKiQAwACAAAAFAAAALwAAAAAMjAyNjowNDoyMyAyMToyOTowOAAyMDI2OjA0OjIzIDIxOjI5OjA4AP/hCxBodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMS4wLWpjMDAzIj4KICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgPHJkZjpEZXNjc
+/* ── LANG DROPDOWN ── */
+let currentLang = 'es';
+const langData = {
+  es:{flag:'🇪🇸',code:'ES'},
+  en:{flag:'🇺🇸',code:'EN'},
+  de:{flag:'🇩🇪',code:'DE'}
+};
+
+function toggleLangMenu(){
+  const btn = document.getElementById('langBtn');
+  const menu = document.getElementById('langMenu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+
+function selectLang(lang, flag, code){
+  document.getElementById('lang-flag').textContent = flag;
+  document.getElementById('lang-code').textContent = code;
+  // mark selected
+  document.querySelectorAll('.lang-menu button').forEach(b=>{
+    b.classList.toggle('selected', b.textContent.trim().includes(code));
+  });
+  // close
+  document.getElementById('langBtn').classList.remove('open');
+  document.getElementById('langMenu').classList.remove('open');
+  changeLang(lang);
+}
+
+// close on outside click
+document.addEventListener('click', function(e){
+  const sel = document.querySelector('.lang-select');
+  if(sel && !sel.contains(e.target)){
+    document.getElementById('langBtn').classList.remove('open');
+    document.getElementById('langMenu').classList.remove('open');
+  }
+});
+
+/* ── TRANSLATIONS ── */
+const T = {
+  es:{
+    tagline:'El futuro de la <span>tokenización</span><br>está aquí',
+    sub:'Inversiones inteligentes en tecnología blockchain, minería y movilidad',
+    btnReg:'Registrarme ahora', btnWa:'Consultar por WhatsApp',
+    s1:'AÑOS', s2:'PAÍSES', s3:'PRODUCTOS', s4:'RET. MÁX.',
+    vision:'Nuestra Visión', liderazgo:'Liderazgo con Propósito',
+    ceoRole:'Fundadora & CEO',
+    quote:'"La tecnología blockchain no es el futuro — es el presente. Quienes actúan hoy, lideran mañana."',
+    bio:'Con más de 14 años en el sector tecnológico y financiero, Polet ha guiado a cientos de inversores hacia oportunidades reales en minería digital, tokenización de activos y movilidad eléctrica.',
+    prodTag:'Portafolio', prodTitle:'Nuestros Productos',
+    pd1:'50% de ganancias de XBlocos Ltda. Pagos el día 5 de cada mes. Suministro: 1.000 unidades.',
+    pd2:'25% de ganancias de STK Engenharia Ltda. Pagos el día 5 de cada mes. Suministro: 500 unidades.',
+    pd3:'Rentabilidad diaria del 0.5671%, garantizada. Pagos liberados el día 27 de cada mes.',
+    pd4:'Rentabilidad variable lun–vie. Retorno mensual entre 5% y 20%. Tarifa del 5% al retirar.',
+    pm1:'Valor: 380 USDT', pm2:'Valor: 500 USDT', pm3:'15 – 100.000 USDT', pm4:'25 – 75.000 USDT',
+    calcTag:'Herramienta', calcTitle:'Calculadora de Rendimiento',
+    calcLabel:'Inversión inicial (USDT)', calcBtn:'Calcular rendimiento máximo',
+    ct1:'Token One', ct2:'Token Teem', ct3:'Win Win', ct4:'Token Way',
+    ctaH:'¿Listo para invertir en el futuro?',
+    ctaP:'Únete a nuestra comunidad de inversores y empieza a generar rendimientos reales desde hoy.',
+    ctaBtn1:'Crear mi cuenta', ctaBtn2:'Escribir por WhatsApp'
+  },
+  en:{
+    tagline:'The future of <span>tokenization</span><br>is here',
+    sub:'Smart investments in blockchain technology, mining and mobility',
+    btnReg:'Register now', btnWa:'Contact via WhatsApp',
+    s1:'YEARS', s2:'COUNTRIES', s3:'PRODUCTS', s4:'MAX. RET.',
+    vision:'Our Vision', liderazgo:'Leadership with Purpose',
+    ceoRole:'Founder & CEO',
+    quote:'"Blockchain technology is not the future — it is the present. Those who act today, lead tomorrow."',
+    bio:'With over 14 years in the technology and financial sector, Polet has guided hundreds of investors toward real opportunities in digital mining, asset tokenization and electric mobility.',
+    prodTag:'Portfolio', prodTitle:'Our Products',
+    pd1:'50% of XBlocos Ltda. profits shared with affiliates. Payments on the 5th of each month. Supply: 1,000 units.',
+    pd2:'25% of STK Engenharia Ltda. profits shared with affiliates. Payments on the 5th of each month. Supply: 500 units.',
+    pd3:'Daily yield of 0.5671%, guaranteed. Accumulated payouts released on the 27th of each month.',
+    pd4:'Variable Mon–Fri returns. Monthly return between 5% and 20%. 5% fee on withdrawal.',
+    pm1:'Value: 380 USDT', pm2:'Value: 500 USDT', pm3:'15 – 100,000 USDT', pm4:'25 – 75,000 USDT',
+    calcTag:'Tool', calcTitle:'Yield Calculator',
+    calcLabel:'Initial investment (USDT)', calcBtn:'Calculate maximum return',
+    ct1:'Token One', ct2:'Token Teem', ct3:'Win Win', ct4:'Token Way',
+    ctaH:'Ready to invest in the future?',
+    ctaP:'Join our investor community and start generating real returns today.',
+    ctaBtn1:'Create my account', ctaBtn2:'Write on WhatsApp'
+  },
+  de:{
+    tagline:'Die Zukunft der <span>Tokenisierung</span><br>ist jetzt',
+    sub:'Intelligente Investitionen in Blockchain-Technologie, Mining und Mobilität',
+    btnReg:'Jetzt registrieren', btnWa:'Per WhatsApp anfragen',
+    s1:'JAHRE', s2:'LÄNDER', s3:'PRODUKTE', s4:'MAX. RET.',
+    vision:'Unsere Vision', liderazgo:'Führung mit Ziel',
+    ceoRole:'Gründerin & CEO',
+    quote:'"Blockchain-Technologie ist nicht die Zukunft — sie ist die Gegenwart. Wer heute handelt, führt morgen."',
+    bio:'Mit über 14 Jahren Erfahrung im Technologie- und Finanzsektor hat Polet Hunderte von Investoren zu echten Chancen im digitalen Mining, Asset-Tokenisierung und Elektromobilität geführt.',
+    prodTag:'Portfolio', prodTitle:'Unsere Produkte',
+    pd1:'50% der Gewinne von XBlocos Ltda. unter den Affiliates verteilt. Zahlungen am 5. jeden Monats. Angebot: 1.000 Einheiten.',
+    pd2:'25% der Gewinne von STK Engenharia Ltda. Zahlungen am 5. jeden Monats. Angebot: 500 Einheiten.',
+    pd3:'Tägliche Rendite von 0,5671 %, garantiert. Auszahlungen am 27. jeden Monats.',
+    pd4:'Variable Rendite Mo–Fr. Monatliche Rendite zwischen 5 % und 20 %. 5 % Gebühr bei Entnahme.',
+    pm1:'Wert: 380 USDT', pm2:'Wert: 500 USDT', pm3:'15 – 100.000 USDT', pm4:'25 – 75.000 USDT',
+    calcTag:'Werkzeug', calcTitle:'Renditerechner',
+    calcLabel:'Erstinvestition (USDT)', calcBtn:'Maximale Rendite berechnen',
+    ct1:'Token One', ct2:'Token Teem', ct3:'Win Win', ct4:'Token Way',
+    ctaH:'Bereit, in die Zukunft zu investieren?',
+    ctaP:'Werden Sie Teil unserer Investorengemeinschaft und erwirtschaften Sie ab heute echte Renditen.',
+    ctaBtn1:'Konto erstellen', ctaBtn2:'Per WhatsApp schreiben'
+  }
+};
+
+function changeLang(lang){
+  currentLang = lang;
+  const t = T[lang];
+  document.getElementById('txt-tagline').innerHTML = t.tagline;
+  document.getElementById('txt-hero-sub').textContent = t.sub;
+  document.getElementById('txt-btn-reg').textContent = t.btnReg;
+  document.getElementById('txt-btn-wa').textContent = t.btnWa;
+  document.getElementById('s1').textContent = t.s1;
+  document.getElementById('s2').textContent = t.s2;
+  document.getElementById('s3').textContent = t.s3;
+  document.getElementById('s4').textContent = t.s4;
+  document.getElementById('txt-vision').textContent = t.vision;
+  document.getElementById('txt-liderazgo').textContent = t.liderazgo;
+  document.getElementById('txt-ceo-role').textContent = t.ceoRole;
+  document.getElementById('txt-quote').textContent = t.quote;
+  document.getElementById('txt-bio').textContent = t.bio;
+  document.getElementById('txt-prod-tag').textContent = t.prodTag;
+  document.getElementById('txt-prod-title').textContent = t.prodTitle;
+  ['1','2','3','4'].forEach(n=>{
+    document.getElementById('pd'+n).textContent = t['pd'+n];
+    document.getElementById('pm'+n).textContent = t['pm'+n];
+    document.getElementById('ct'+n).textContent = t['ct'+n];
+  });
+  document.getElementById('txt-calc-tag').textContent = t.calcTag;
+  document.getElementById('txt-calc-title').textContent = t.calcTitle;
+  document.getElementById('txt-calc-label').textContent = t.calcLabel;
+  document.getElementById('txt-calc-btn').textContent = t.calcBtn;
+  document.getElementById('txt-cta-h').textContent = t.ctaH;
+  document.getElementById('txt-cta-p').textContent = t.ctaP;
+  document.getElementById('txt-cta-btn1').textContent = t.ctaBtn1;
+  document.getElementById('txt-cta-btn2').textContent = t.ctaBtn2;
+  document.getElementById('resultado').textContent = '';
+  document.getElementById('resultado-detail').textContent = '';
+}
+
+/* ── CALCULATOR ── */
+let currentRate = 236.77;
+function setRate(r, el){
+  currentRate = r;
+  document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function calcRetorno(){
+  const inv = parseFloat(document.getElementById('calcInv').value)||0;
+  if(inv<100){ document.getElementById('resultado').textContent='⚠ Mín. $100'; return; }
+  const ganancia = (inv * currentRate / 100).toFixed(2);
+  const total = (inv + parseFloat(ganancia)).toFixed(2);
+  const symbols = {es:'$',en:'$',de:'$'};
+  document.getElementById('resultado').textContent = `+${symbols[currentLang]}${ganancia}`;
+  document.getElementById('resultado-detail').textContent =
+    currentLang==='de'
+      ? `Gesamtkapital nach 1 Jahr: $${total}`
+      : currentLang==='en'
+      ? `Total capital after 1 year: $${total}`
+      : `Capital total después de 1 año: $${total}`;
+}
+</script>
+
+</body>
+</html>
