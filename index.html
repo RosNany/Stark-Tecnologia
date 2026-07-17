@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stark Tecnología | Polet Rosales - Socia Oficial</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --blue-deep:#061A40;
+  --blue-mid:#0D2E6E;
+  --blue-bright:#1648B8;
+  --blue-accent:#2563EB;
+  --bg:#F4F7FF;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--blue-deep);}
+
+/* ── BARRA DE IDIOMA ── */
+.lang-bar{
+  background:var(--blue-deep);
+  padding:10px 16px;
+  display:flex;
+  justify-content:flex-start;
+  border-bottom:1px solid rgba(212,160,23,0.2);
+}
+.lang-select{position:relative;display:inline-block;}
+.lang-current{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(212,160,23,0.4);
+  color:var(--gold-light);
+  padding:9px 18px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  border-radius:8px;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 50%,var(--blue-bright) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;z-index:1;padding:40px 20px;text-align:center;}
+.logo-wrap{display:inline-flex;align-items:center;gap:14px;margin-bottom:24px;}
+.logo-star-svg{width:56px;height:56px;filter:drop-shadow(0 0 12px rgba(212,160,23,0.6));}
+.logo-words{text-align:left;}
+.logo-stark{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:#fff;letter-spacing:4px;line-height:1;}
+.logo-tec{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold-light);letter-spacing:5px;margin-top:2px;}
+.hero-tagline{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,5vw,32px);color:#fff;line-height:1.25;margin-bottom:12px;}
+.hero-tagline span{color:var(--gold-light);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto;}
+.hero-ctas{display:flex;flex-direction:column;gap:12px;align-items:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .2s;width:100%;max-width:320px;justify-content:center;box-shadow:0 4px 20px rgba(212,160,23,0.4);}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+
+.gold-bar{height:4px;background:linear-gradient(90deg,var(--blue-deep),var(--gold),var(--blue-deep));}
+
+/* ── ESTADÍSTICAS DEL 2° ANIVERSARIO ── */
+.stats{background:var(--blue-deep);padding:20px;display:flex;justify-content:center;gap:0;flex-wrap:wrap;}
+.stat{flex:1;min-width:90px;max-width:160px;text-align:center;padding:12px 8px;border-right:1px solid rgba(255,255,255,0.1);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;color:var(--gold);line-height:1;}
+.stat-label{font-size:10px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:1px;}
+
+/* ── CONTENEDOR ── */
+.container{max-width:900px;margin:0 auto;padding:24px 16px;}
+.card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:0 4px 24px rgba(6,26,64,0.07);border:1px solid rgba(212,160,23,0.15);margin-bottom:24px;}
+.section-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,5vw,26px);color:var(--blue-deep);line-height:1.2;margin-bottom:20px;}
+p{color:#4A5568;font-size:14px;line-height:1.75;}
+
+/* ── PERFIL DE SOCIO AUTORIZADO (POLET ROSALES) ── */
+.ceo-layout{display:flex;flex-direction:column;align-items:center;gap:20px;}
+.ceo-photo-wrap{position:relative;display:inline-block;}
+.ceo-photo{
+  width:180px;
+  height:240px;
+  object-fit:cover;
+  border-radius:16px;
+  border:3px solid var(--gold);
+  display:block;
+  box-shadow: 0 8px 24px rgba(6, 26, 64, 0.15);
+}
+.ceo-badge{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid));color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;padding:6px 16px;border-radius:20px;white-space:nowrap;border:1px solid var(--gold);}
+.ceo-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--blue-deep);margin-top:20px;margin-bottom:2px;}
+.ceo-role{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.quote{font-style:italic;color:#2D3748;font-size:14px;line-height:1.8;border-left:4px solid var(--gold);padding-left:16px;text-align:left;margin:0 auto 16px;max-width:520px;}
+
+/* ── SECTORES INDUSTRIALES ── */
+.sectors-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px;}
+@media(min-width:576px){.sectors-grid{grid-template-columns:1fr 1fr;}}
+.sector-card{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:14px;padding:20px 16px;text-align:left;border:1px solid rgba(212,160,23,0.25);}
+.sector-title-card{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:#fff;margin-bottom:6px;}
+.sector-desc{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.sector-badge{display:inline-block;margin-top:10px;font-size:10px;background:rgba(212,160,23,0.15);color:var(--gold-light);padding:3px 10px;border-radius:10px;font-weight:600;}
+
+/* ── CALCULADORA TOKEN WIN PREMIUM ── */
+.calc-box{background:linear-gradient(135deg,var(--blue-deep) 0%,var(--blue-mid) 100%);border-radius:16px;padding:28px 20px;border:2px solid var(--gold);margin-top:8px;}
+.calc-tabs{display:flex;flex-direction:column;gap:8px;justify-content:center;margin-bottom:20px;}
+@media(min-width:576px){.calc-tabs{flex-direction:row;}}
+.calc-tab{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:8px 16px;border-radius:20px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;}
+.calc-tab.active, .calc-tab:hover{background:var(--gold);border-color:var(--gold);color:#000;}
+.calc-label{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:600;text-align:center;}
+.calc-input{width:100%;padding:13px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:22px;font-family:'Montserrat',sans-serif;font-weight:700;text-align:center;outline:none;}
+.calc-result-box{text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);}
+#resultado{font-family:'Montserrat',sans-serif;font-weight:800;font-size:24px;color:var(--gold-light);}
+#resultado-detail{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;}
+
+/* ── TRANSPARENCIA LEGAL ── */
+.legal-box{background:rgba(6,26,64,0.03);border-radius:12px;padding:16px;font-size:11px;color:#718096;margin-top:24px;border:1px dashed rgba(6,26,64,0.15);line-height:1.6;}
+footer{text-align:center;padding:24px;font-size:12px;color:var(--blue-deep);background:#fff;margin-top:4px;}
+
+/* ── BOTÓN FLOTANTE WHATSAPP ── */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <div class="lang-select">
+    <button class="lang-current">
+      <span>🇲🇽</span> <span>ES</span>
+    </button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <svg class="logo-star-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="#D4A017"/>
+      </svg>
+      <div class="logo-words">
+        <div class="logo-stark">STARK</div>
+        <div class="logo-tec">TECNOLOGÍA</div>
+      </div>
+    </div>
+    <div class="hero-tagline">Conectando el mundo industrial<br>con el universo <span>digital</span></div>
+    <div class="hero-sub">Participa en la tokenización de empresas reales y consolidadas a través de blockchain de forma transparente y desburocratizada.</div>
+    <div class="hero-ctas">
+      <a href="https://www.starktecnologia.com/consultant/polet87" target="_blank" class="btn-primary">
+        <span>Registrarme</span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="gold-bar"></div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">AÑOS EXP.</div></div>
+  <div class="stat"><div class="stat-num">2°</div><div class="stat-label">ANIVERSARIO</div></div>
+  <div class="stat"><div class="stat-num">157%</div><div class="stat-label">RET. BASE</div></div>
+  <div class="stat"><div class="stat-num">300%</div><div class="stat-label">RET. POTENCIADO</div></div>
+</div>
+
+<div class="container">
+
+  <!-- SECCIÓN SOCIO AUTORIZADO (RUTA INTERNA DE LA IMAGEN) -->
+  <div class="card">
+    <div class="section-tag">Asesoría Autorizada</div>
+    <div class="section-title">Tu Guía en Stark</div>
+    <div class="ceo-layout">
+      <div class="ceo-photo-wrap">
+        <img src="archivo_00000000a8d0824688a22e9cca53bb08.png" alt="Polet Rosales" class="ceo-photo">
+        <div class="ceo-badge">SOCIA OFICIAL</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="ceo-name">Polet Rosales</div>
+        <div class="ceo-role">Socia Oficial Stark Tecnología</div>
+        <blockquote class="quote">"La tokenización de activos industriales es el puente definitivo entre la economía tradicional y la inmutabilidad de la blockchain. ¡Lideremos el cambio juntos!"</blockquote>
+        <p>Como socia y representante autorizada de Stark Tecnología, acompaño a inversores y emprendedores en la diversificación inteligente de capital mediante soluciones tecnológicas sólidas, transparentes y respaldadas por industrias físicas consolidadas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-tag">Ecosistema Colectivo</div>
+    <div class="section-title">Sectores Industriales Respaldados</div>
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <div class="sector-title-card">Infraestructura y Construcción</div>
+        <div class="sector-desc">Producción de cemento y materiales pesados de construcción vinculados directamente a la cadena de valor física.</div>
+        <span class="sector-badge">Producción Real</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-title-card">Mobiliario Especializado</div>
+        <div class="sector-desc">Líneas robustas de suministro en mobiliario hospitalario, de oficina, escolar, colchones y suplementos.</div>
+        <span class="sector-badge">Suministro Activo</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-title-card">Ingeniería y Elevación</div>
+        <div class="sector-desc">Estructuras metálicas complejas, ingeniería industrial pesada y sistemas avanzados de elevación mecánica.</div>
+        <span class="sector-badge">Área Metalmecánica</span>
+      </div>
+      <div class="sector-card">
+        <div class="sector-title-card">Empresas Aliadas</div>
+        <div class="sector-desc">Integración activa de corporaciones como XBlocos, X3 y STK Engenharia Clínica e Industrial.</div>
+        <span class="sector-badge">Ecosistema Integrado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-tag">Propuesta Ganadora</div>
+    <div class="section-title">Simulador Token Win (Premium Edition)</div>
+    <p style="margin-bottom: 15px;">Calcula los rendimientos estimados de tu participación basándote en un ciclo completo de 365 días.</p>
+    
+    <div class="calc-box">
+      <div class="calc-tabs">
+        <button class="calc-tab active" id="tabPasivo" onclick="cambiarPerfil('pasivo')">Socio Pasivo (0.4301% Diario)</button>
+        <button class="calc-tab" id="tabEmprendedor" onclick="cambiarPerfil('emprendedor')">Socio Emprendedor (0.8219% Diario)</button>
+      </div>
+      
+      <div class="calc-label">Monto de Participación (USDT)</div>
+      <input type="number" class="calc-input" id="montoInput" value="1000" oninput="calcularRendimiento()">
+      
+      <div class="calc-result-box">
+        <div id="resultado">0.00 USDT</div>
+        <div id="resultado-detail">Retorno anual estimado (157% de beneficio base)</div>
+      </div>
+    </div>
+
+    <div class="legal-box">
+      <strong>Stark Tecnología y Tokenización S.A.</strong><br>
+      RUC: 155754554-2-2024.<br>
+      <em>Transparencia y trazabilidad inmutable mediante Smart Contracts en Blockchain.</em>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Sitio Web Informativo Gestionado por Partner Autorizado de <span>Stark Tecnología</span> © 2026.
+</footer>
+
+<a href="https://wa.me/4915565291942" target="_blank" class="wa-float">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+</a>
+
+<script>
+let perfilActual = 'pasivo';
+
+function cambiarPerfil(perfil) {
+  perfilActual = perfil;
+  document.getElementById('tabPasivo').classList.toggle('active', perfil === 'pasivo');
+  document.getElementById('tabEmprendedor').classList.toggle('active', perfil === 'emprendedor');
+  calcularRendimiento();
+}
+
+function calcularRendimiento() {
+  const monto = parseFloat(document.getElementById('montoInput').value) || 0;
+  let porcentajeTotal = 1.57;
+  let detalleText = "Retorno total anual estimado (157% de beneficio base pasivo)";
+  
+  if(perfilActual === 'emprendedor') {
+    porcentajeTotal = 3.00;
+    detalleText = "Retorno total máximo desbloqueable en red (300% de tope por ciclo)";
+  }
+  
+  const resultadoFinal = monto * porcentajeTotal;
+  document.getElementById('resultado').innerText = resultadoFinal.toFixed(2) + " USDT";
+  document.getElementById('resultado-detail').innerText = detalleText;
+}
+calcularRendimiento();
+</script>
+
+</body>
+</html>
